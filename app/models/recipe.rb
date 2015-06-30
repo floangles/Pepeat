@@ -28,6 +28,18 @@
 #
 
 class Recipe < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, depend: :destroy
   belongs_to :category
+  has_many :ingredients, through: :composition
+  has_many :composition
+  has_many :offers
+  validates :name, presence: true
+  validates :numberpers, presence: true
+  validates :description, presence: true
+  validates :cooktime, presence: true
+  validates :preparationtime, presence: true
+  validates :price, presence: true
+
+
+
 end

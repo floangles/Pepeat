@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
   has_many :recipes, depend: :destroy
   has_many :bookings, depend: :destroy
 
@@ -48,8 +49,6 @@ class User < ActiveRecord::Base
   validates :address, presence: true
   validates :pepeato, presence: true
   validates :delay, presence: true
-
-
 
 
 end
