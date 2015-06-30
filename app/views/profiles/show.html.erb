@@ -1,13 +1,28 @@
 
 <%= render 'shared/small_navbar' %>
-<h1>salut ca va</h1>
 
-<%= link_to 'edit', edit_profile_path %>
 
+
+
+<div class= "text-center">
+<%= link_to 'edit', edit_profile_path, class: "btn btn-success" %>
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <%= current_user.firstname %>
+      <ul>
+      <li><%= current_user.firstname %></li>
+      <li><%= current_user.lastname %></li>
+      <li><%= current_user.address %></li>
+      <li><%= current_user.zipcode %></li>
+      <li><%= current_user.city %></li>
+      <li><%= current_user.email %></li>
+      <li><%= current_user.phonenumber %></li>
+      <li><%= current_user.sex %></li>
+      <li><%= current_user.description %></li>
+      <li><%= current_user.delay %></li>
+      </ul>
       </div>
     </div>
+</div>
+
 </div>
