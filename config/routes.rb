@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resource :profile, only: [:show, :edit, :update]
 
   namespace :profile do
+
+    resources :bookings, only: [:index, :show]
     resources :recipes
   end
 

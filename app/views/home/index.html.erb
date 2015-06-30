@@ -1,5 +1,7 @@
 <div id="banner">
-  <h1 class="text-center"> Commander des plats maison prêt de chez vous </h1>
+
+    <h1 class="text-center" id="big_title"> Commander des plats maison prêt de chez vous </h1>
+
   <div class="form-inline">
     <%= form_tag(recipes_path, method: "get", class: "text-center") do %>
        <%= text_field_tag(:city, nil, placeholder: 'votre ville ?', class: 'form-control') %>
@@ -7,28 +9,29 @@
     <% end %>
   </div>
 </div>
+
 <div id="featured">
   <div class="container">
-    <div class="row">
+    <div class="row text-center">
       <div class="col-xs-12 col-sm-3">
-        <%= image_tag "featuredcity.png", class: "size-featured i "%>
-        <p class="text-center"> 1 </p>
-        <p class="text-center">Precisez votre ville</p>
+        <%= image_tag "featuredcity.png", class: "size-featured img-center "%>
+        <p> 1 </p>
+        <p>Precisez votre ville</p>
       </div>
       <div class="col-xs-12 col-sm-3">
         <%= image_tag "featureddish.png", class: "size-featured"%>
-        <p  class="text-center"> 2 </p>
-        <p class="text-center">choisissez un plat proche de chez vous</p>
+        <p> 2 </p>
+        <p>choisissez un plat proche de chez vous</p>
       </div>
       <div class="col-xs-12 col-sm-3">
         <%= image_tag "featureddelivery.png", class: "size-featured"%>
-        <p  class="text-center"> 3 </p>
-        <p class="text-center">recuperez votre plat</p>
+        <p> 3 </p>
+        <p>recuperez votre plat</p>
       </div>
       <div class="col-xs-12 col-sm-3">
         <%= image_tag "featuredstarving.png", class: "size-featured"%>
-        <p class="text-center"> 4</p>
-        <p class="text-center"> A table !</p>
+        <p> 4</p>
+        <p> A table !</p>
       </div>
     </div>
   </div>
