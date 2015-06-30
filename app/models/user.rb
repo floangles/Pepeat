@@ -51,6 +51,8 @@ class User < ActiveRecord::Base
   validates :address, presence: true, on: :update
   validates :pepeato, presence: true, on: :update
   validates :delay, presence: true, on: :update
+  validates :zipcode, presence: true, on: :update
+  validates :city, presence: true, on: :update
 
 
 end
