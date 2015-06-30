@@ -39,8 +39,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  has_many :recipes, depend: :destroy
-  has_many :bookings, depend: :destroy
+  has_many :recipes, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates :firstname, presence: true
