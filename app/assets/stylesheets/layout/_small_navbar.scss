@@ -1,0 +1,59 @@
+.small-navbar-wagon {
+
+background: #404040  ;
+font-family: "Raleway", "sans-serif";
+border: none;
+font-size: 14px;
+text-transform: capitalize;
+font-weight: 300;
+letter-spacing: 1.5px;
+padding-left: 20px;
+border-bottom: 1px solid #eeeeee  ;
+min-height: 0;
+transition: background 0.4s ease;
+
+
+  .navbar-nav > li > a,
+  .navbar-nav > .open > a,
+  .navbar-nav > li > a:focus,
+  .navbar-nav > .open > a:focus {
+    outline: none;
+    color: $navbar-color;
+    line-height: $navbar-height;
+    padding-top: $navbar-vertical-padding;
+    padding-bottom: $navbar-vertical-padding;
+    background-color: transparent;
+  }
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > .open > a:hover {
+    color: $navbar-hover-color;
+    background-color: transparent;
+  }
+
+  .navbar-brand,
+  .navbar-brand:hover {
+    outline: none;
+    color: $navbar-color;
+    padding-top: $navbar-vertical-padding;
+    padding-bottom: $navbar-vertical-padding;
+  }
+
+  .navbar-nav > li > a.btn {
+    line-height: $navbar-btn-height;
+    padding: 0 $navbar-btn-horizontal-padding;
+    color: $navbar-btn-color;
+    border-radius: $navbar-btn-radius;
+    margin-top: ($navbar-height + 2 * $navbar-vertical-padding - $navbar-btn-height) / 2;
+    margin-bottom: ($navbar-height + 2 * $navbar-vertical-padding - $navbar-btn-height) / 2;
+    font-weight: bold;
+    background-color: $navbar-btn-bg;
+    font-size: 12px;
+    &:hover{
+      background-color: darken($navbar-btn-bg, 30%);
+    }
+  }
+}
+.user-padded {
+  padding: 30px 30px;
+}

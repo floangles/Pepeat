@@ -25,6 +25,8 @@
 #  pepeato                :boolean
 #  description            :text
 #  delay                  :string
+#  city                   :string
+#  zipcode                :integer
 #
 # Indexes
 #
