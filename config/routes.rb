@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :recipes
 
   resource :profile, only: [:show, :edit, :update]
+
+  namespace :profile do
+    resources :recipes
+  end
+
 end

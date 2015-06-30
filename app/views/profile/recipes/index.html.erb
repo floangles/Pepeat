@@ -1,0 +1,13 @@
+<h1><%=link_to 'add a new recipe', new_profile_recipe_path, class: "btn, btn-warning"%></h1>
+
+
+<%@recipes.each do |recipe| %>
+
+ <div>
+<p><%= recipe.name %></p>
+<%=link_to 'show the recipe', profile_recipe_path(recipe), class: "btn, btn-success"  %>
+<%=link_to 'edit the recipe', edit_profile_recipe_path(recipe), class: "btn, btn-success"  %>
+</div>
+
+
+<% end %>
