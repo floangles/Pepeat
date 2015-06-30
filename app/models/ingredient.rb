@@ -9,4 +9,8 @@
 #
 
 class Ingredient < ActiveRecord::Base
+
+  has_many :compositions
+  belongs_to :recipe
+  validates :name, presence: true
 end
