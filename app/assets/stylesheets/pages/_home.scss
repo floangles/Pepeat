@@ -2,3 +2,18 @@
   background-color: white;
   padding: 300px;
 }
+#featured {
+  background-color: grey;
+  padding: 150px;
+
+}
+#userstories {
+  background-color: $green  ;
+  padding: 150px;
+}
+
+.size-featured {
+  width: 100px;
+  height: 100px;
+  margin: 0px;
+}
