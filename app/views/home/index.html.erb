@@ -1,10 +1,10 @@
-<h1 class="text-center"> hello </h1>
+<div id="banner">
+  <h1 class="text-center"> Commander des plats maison prêt de chez vous </h1>
   <div class="form-inline">
-    <%= form_tag(recipes_path, method: "get", class: "") do %>
-       <%= text_field_tag(:address, nil, placeholder: 'Où cherches tu ?', class: 'form-control') %>
-
+    <%= form_tag(recipes_path, method: "get", class: "text-center") do %>
+       <%= text_field_tag(:city, nil, placeholder: 'votre ville ?', class: 'form-control') %>
      <%= submit_tag("Search", class: "btn-danger btn-large btn form-control", id: 'submit-btn') %>
     <% end %>
   </div>
-
+</div>
 

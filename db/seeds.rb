@@ -8,3 +8,11 @@
 
 
 
+# u = User.new(firstname: "flo", lastname: "raRA", email: "floflo@flo.com", phonenumber: "0123456780",pepeato: true, address:"12 rue de paris", delay:"1h")
+# u.save
+# #id = 1
+# # r = Recipe.new(name: "andouillette", cooktime: "1H20", numberpers: 2, description: "blabla", preparationtime: "1H40", price: 20, user_id: 1 )
+# # r.save
+# #id = 1
+
+
