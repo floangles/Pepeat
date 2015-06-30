@@ -16,4 +16,5 @@ class RecipesController < ApplicationController
    # where users.id = recipes.user_id
   end
 
+
 end
