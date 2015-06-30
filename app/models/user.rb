@@ -43,12 +43,12 @@ class User < ActiveRecord::Base
   has_many :bookings, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
-  validates :firstname, presence: true
-  validates :lastname, presence: true
-  validates :phonenumber, presence: true, uniqueness: true
-  validates :address, presence: true
-  validates :pepeato, presence: true
-  validates :delay, presence: true
+  validates :firstname, presence: true, on: :update
+  validates :lastname, presence: true, on: :update
+  validates :phonenumber, presence: true, uniqueness: true, on: :update
+  validates :address, presence: true, on: :update
+  validates :pepeato, presence: true, on: :update
+  validates :delay, presence: true, on: :update
 
 
 end
