@@ -1,0 +1,39 @@
+
+<%= render 'shared/small_navbar' %>
+
+
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-xs-offset-4 col-xs-4 text-center">
+        <div>
+          <%= simple_form_for(@user, url: profile_path, html: { multipart: true }) do |f| %>
+            <div class="labels-form">
+              <%= f.error_notification %>
+
+              <%= f.input :firstname %>
+              <%= f.input :lastname %>
+              <%= f.input :address %>
+              <%= f.input :zipcode %>
+              <%= f.input :city %>
+              <%= f.input :email %>
+              <%= f.input :phonenumber %>
+              <%= f.input :sex %>
+              <%= f.input :description %>
+
+              <p>
+                <%= f.label :picture %>
+                <%= f.file_field :picture %>
+              </p>
+
+              <%= f.button :submit, "Save my profile" %>
+            <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
