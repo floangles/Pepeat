@@ -17,4 +17,9 @@
 
 class Offer < ActiveRecord::Base
   belongs_to :recipe
+  has_many :bookings
+
+  validates :portion, presence: true
+  validates :startdate, presence: true
+  validates :enddate, presence: true
 end

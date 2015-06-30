@@ -19,4 +19,7 @@
 class Booking < ActiveRecord::Base
   belongs_to :offer
   belongs_to :user
+
+  validates :quantity, presence: true
+  validates :date, presence: true
 end
