@@ -15,6 +15,16 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  firstname              :string
+#  lastname               :string
+#  birthdate              :date
+#  phonenumber            :string
+#  sex                    :string
+#  address                :string
+#  pseudo                 :string
+#  pepeato                :boolean
+#  description            :text
+#  delay                  :string
 #
 # Indexes
 #
@@ -27,4 +37,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
 end
