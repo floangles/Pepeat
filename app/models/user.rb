@@ -55,10 +55,11 @@ class User < ActiveRecord::Base
   validates :lastname, presence: true, on: :update
   validates :phonenumber, presence: true, uniqueness: true, on: :update
   validates :address, presence: true, on: :update
-  validates :pepeato, presence: true, on: :update
   validates :delay, presence: true, on: :update
   validates :zipcode, presence: true, on: :update
   validates :city, presence: true, on: :update
+
+  validates :pepeato, presence: true
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
