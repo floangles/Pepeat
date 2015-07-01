@@ -41,6 +41,7 @@ module Profile
 
     def destroy
     @recipe.destroy
+    redirect_to profile_recipes_path
     end
 
 
@@ -49,7 +50,7 @@ module Profile
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, :numberpers, :description, :cooktime, :preparationtime, :price, :halal, :casher, :bio, :gluten, :lactose, :vegan, :vegetarian)
+      params.require(:recipe).permit(:name, :numberpers, :description, :cooktime, :preparationtime, :price, :halal, :casher, :bio, :gluten, :lactose, :vegan, :vegetarian, :picture)
     end
 
   end

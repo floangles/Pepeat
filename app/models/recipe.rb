@@ -2,24 +2,28 @@
 #
 # Table name: recipes
 #
-#  id              :integer          not null, primary key
-#  name            :string
-#  user_id         :integer
-#  numberpers      :integer
-#  description     :text
-#  cooktime        :string
-#  preparationtime :string
-#  price           :integer
-#  halal           :boolean
-#  vegan           :boolean
-#  vegetarian      :boolean
-#  gluten          :boolean
-#  lactose         :boolean
-#  casher          :boolean
-#  bio             :boolean
-#  category_id     :integer
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                   :integer          not null, primary key
+#  name                 :string
+#  user_id              :integer
+#  numberpers           :integer
+#  description          :text
+#  cooktime             :string
+#  preparationtime      :string
+#  price                :integer
+#  halal                :boolean
+#  vegan                :boolean
+#  vegetarian           :boolean
+#  gluten               :boolean
+#  lactose              :boolean
+#  casher               :boolean
+#  bio                  :boolean
+#  category_id          :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  picture_file_name    :string
+#  picture_content_type :string
+#  picture_file_size    :integer
+#  picture_updated_at   :datetime
 #
 # Indexes
 #
@@ -40,6 +44,11 @@ class Recipe < ActiveRecord::Base
   validates :preparationtime, presence: true
   validates :price, presence: true
 
+has_attached_file :picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
+
+  validates_attachment_content_type :picture,
+    content_type: /\Aimage\/.*\z/
 
 
 end

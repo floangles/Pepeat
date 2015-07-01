@@ -1,0 +1,13 @@
+<div class= "text-center">
+<h1><%= @recipe.name%></h1>
+<p><%= image_tag @recipe.picture.url(:medium) %></p>
+<p><b>nombre de personne : </b><%=@recipe.numberpers%></p>
+<p><b>Recette : </b><%=@recipe.description%></p>
+<p><b>temps de prepraration : </b><%=@recipe.cooktime%></p>
+<p><b>temps de préparation : </b><%=@recipe.preparationtime%></p>
+<p><b>price : </b><%=@recipe.price%></p>
+</div>
+
+
+
+
