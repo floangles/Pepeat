@@ -1,5 +1,4 @@
-
-<% if params[:pepeato] %>
+<% if params[:pepeato] || resource.pepeato %>
 <div class="container">
   <div class="row text-center">
     <div class="col-sm-6 col-sm-offset-3">
@@ -11,7 +10,7 @@
         <%= f.input :email, required: true, autofocus: true %>
         <%= f.input :password, required: true %>
         <%= f.input :password_confirmation, required: true %>
-        <%= f.input :pepeato, as: :hidden, input_html: {value: true}%>
+        <%= f.input :pepeato, as: :hidden, input_html: { value: true } %>
 
         <%= f.button :submit, t('.Je veux devenir Pepeato"', default: "Je veux devenir Pepeato"), class: "btn btn-primary", id: 'my-link' %>
 
