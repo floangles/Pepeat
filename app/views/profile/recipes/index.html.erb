@@ -5,6 +5,7 @@
 <%@recipes.each do |recipe| %>
 
   <div id="recipe-<%= recipe.id %>">
+  <p><%= image_tag recipe.picture.url(:medium) %></p>
     <p>nom de la recette : <%= recipe.name %></p>
     <p><%= recipe.price %> €</p>
     <%=link_to 'show the recipe', profile_recipe_path(recipe), class: "btn, btn-success"  %>
