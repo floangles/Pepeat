@@ -40,7 +40,6 @@ module Profile
     end
 
     def destroy
-    authorize @recipe  # TODO: Add `destroy?` to the `recipePolicy`
     @recipe.destroy
     end
 
