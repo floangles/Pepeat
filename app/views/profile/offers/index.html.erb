@@ -1,0 +1,17 @@
+
+<h1>hello offer</h1>
+
+
+<% @offers.each do |offer| %>
+<ul>
+  <li><%= offer.recipe.name %><%= link_to "voir la commande", profile_offer_path(offer)%></li>
+  <li><%= offer.recipe.description %></li>
+  <li><%= offer.recipe.price %></li>
+</ul>
+
+
+<%end %>
+
+
+<%= link_to "Mes informations personnelles", profile_path %>
+

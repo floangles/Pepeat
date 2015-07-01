@@ -30,7 +30,11 @@
             <% end %>
           </li>
           <li>
-            <%= link_to "Mes commandes", profile_bookings_path %>
+            <% if current_user.pepeato == true %>
+              <%= link_to "Mes commandes", profile_pepeatobookings_path %>
+              <% else %>
+              <%= link_to "Mes commandes", profile_bookings_path %>
+            <% end %>
           </li>
           <li>
             <%= link_to "#" do %>

@@ -9,11 +9,12 @@ gem "simple_form"
 gem "country_select"
 gem "high_voltage"
 gem "devise"
+gem 'fullcalendar-rails', '~> 2.3.1.0'
 # gem "pundit"
 gem "paperclip"
 gem "aws-sdk", "< 2.0"
 gem 'nokogiri', '~> 1.6.6.2'
-
+gem 'momentjs-rails'
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
