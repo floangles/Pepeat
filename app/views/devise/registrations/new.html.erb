@@ -1,5 +1,7 @@
+
+<% if params[:pepeato] %>
 <div class="container">
-  <div class="row">
+  <div class="row text-center">
     <div class="col-sm-6 col-sm-offset-3">
       <h2><%= t('.sign_up', default: "Sign up") %></h2>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -9,10 +11,37 @@
         <%= f.input :email, required: true, autofocus: true %>
         <%= f.input :password, required: true %>
         <%= f.input :password_confirmation, required: true %>
-        <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
+        <%= f.input :pepeato, as: :hidden, input_html: {value: true}%>
+
+        <%= f.button :submit, t('.Je veux devenir Pepeato"', default: "Je veux devenir Pepeato"), class: "btn btn-primary", id: 'my-link' %>
+
       <% end %>
 
       <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
+
+<% else %>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2><%= t('.sign_up', default: "Sign up") %></h2>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <%= f.object.errors.full_messages %>
+
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password, required: true %>
+        <%= f.input :password_confirmation, required: true %>
+        <%= f.button :submit, t('.Je veux devenir utilisateur"', default: "Je veux devenir utilisateur"), class: "btn btn-primary", id: 'my-link' %>
+
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+
+<% end %>
