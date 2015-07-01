@@ -43,6 +43,8 @@ class User < ActiveRecord::Base
 
   has_many :recipes, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :pepeatobookings, source: :bookings
+  has_many :offers, through: :recipes
 
   validates :email, presence: true, uniqueness: true
   validates :firstname, presence: true, on: :update

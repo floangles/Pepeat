@@ -1,12 +1,31 @@
-<h1><%=link_to 'add a new recipe', new_profile_recipe_path, class: "btn, btn-warning"%></h1>
+<h1>
+  <%=link_to 'add a new recipe', new_profile_recipe_path, class: "btn, btn-warning"%>
+</h1>
 
 
 <%@recipes.each do |recipe| %>
-
   <div id="recipe-<%= recipe.id %>">
     <p><%= recipe.name %></p>
-    <%=link_to 'show the recipe', profile_recipe_path(recipe), class: "btn, btn-success"  %>
-    <%=link_to 'edit the recipe', edit_profile_recipe_path(recipe), class: "btn, btn-success"  %>
-    <%= link_to "Delete", recipe, method: :delete, remote: true, class: "btn btn-danger" %>
+     <p><%= recipe.id %></p>
+     <ul class="list-inline">
+       <li>
+        <%=link_to 'show the recipe', profile_recipe_path(recipe), class: "btn btn-success"  %>
+      </li>
+      <li>
+        <%=link_to 'edit the recipe', edit_profile_recipe_path(recipe), class: "btn btn-success"  %>
+      </li>
+      <li>
+        <%= link_to "Delete", recipe, method: :delete, remote: true, class: "btn btn-danger" %>
+      </li>
+      <li>
+        <%= form_tag(new_profile_offer_path, method: "get", class: "text-center") do %>
+          <%= hidden_field_tag(:recipe_id, recipe.id) %>
+          <%= submit_tag("Creer une offre", class: "btn btn-default form-control") %>
+        <% end %>
+      </li>
+    </ul>
   </div>
 <% end %>
+<div id='calendar'>
+
+</div>

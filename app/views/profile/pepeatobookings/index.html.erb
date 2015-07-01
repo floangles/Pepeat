@@ -2,9 +2,9 @@
 <h1>hello booking</h1>
 
 
-<% @bookings.each do |booking| %>
+<% @pepeatobookings.each do |booking| %>
 <ul>
-  <li><%= booking.offer.recipe.name %><%= link_to "voir la commande", profile_booking_path(booking)%></li>
+  <li><%= booking.offer.recipe.name %><%= link_to "voir la commande", profile_pepeatobooking_path(booking)%></li>
   <li><%= booking.offer.recipe.description %></li>
   <li><%= booking.offer.recipe.price %></li>
 </ul>
@@ -14,6 +14,7 @@
 
 
 <%= link_to "Mes informations personnelles", profile_path %>
+<%= link_to "Mettre en ligne une nouvelle recette" %>
 
 
 
