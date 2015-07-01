@@ -3,11 +3,12 @@
 
 <%@recipes.each do |recipe| %>
 
- <div>
-<p><%= recipe.name %></p>
-<%=link_to 'show the recipe', profile_recipe_path(recipe), class: "btn, btn-success"  %>
-<%=link_to 'edit the recipe', edit_profile_recipe_path(recipe), class: "btn, btn-success"  %>
-</div>
-
-
+ <div id="recipe-<%= recipe.id %>">
+    <p><%= recipe.name %></p>
+    <%=link_to 'show the recipe', profile_recipe_path(recipe), class: "btn, btn-success"  %>
+    <%=link_to 'edit the recipe', edit_profile_recipe_path(recipe), class: "btn, btn-success"  %>
+    <% if policy(recipe).destroy? %>
+        <%= link_to "Delete", recipe, method: :delete, remote: true %>
+    <% end %>
+  </div>
 <% end %>

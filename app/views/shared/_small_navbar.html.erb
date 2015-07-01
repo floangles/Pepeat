@@ -17,22 +17,17 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <!-- navbar-right -->
-          <li>
 
-            <%= link_to "Mes informations personnelles", profile_path %>
-          </li>
           <li>
-            <%= link_to "Mes recettes" %>
-
             <%= link_to profile_path do %>
               Mes informations personnelles
             <% end %>
           </li>
+
           <li>
             <%= link_to profile_recipes_path do %>
               Mes recettes
             <% end %>
-
           </li>
           <li>
             <%= link_to "Mes commandes", profile_bookings_path %>
