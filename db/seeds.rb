@@ -16,3 +16,21 @@
 # #id = 1
 
 
+# require "open-uri"
+# require "nokogiri"
+
+# array = ('A'..'Z').to_a
+# array.each  do |letter|
+#   doc = Nokogiri::HTML(open('http://www.marmiton.org/recettes/recettes-index.aspx?letter='+"#{letter}"))
+#   doc.search('.m-lsting-ing li').each do |ingredient_li|
+#     Ingredient.create!(name: ingredient_li.text)
+#   end
+# end
+# array = ["Japonais", "Pizza", "Chinois", "Indien-Pakistanais", "Sandwishes-Salades","Libanais", "Italien","Bagels","Africain", "Aperitif", "Burger", "Bresilien", "Cocktails","Corse", "Couscous-Tagines","Créole","Crêpes-Galettes", "Cubain", "Diététique", "Espagnol", "Francais", "Fruit de mer", "Mexicain", "Pates", "Petit dejeuner", "Thailandais", "Turc", "Vietnamien", "Wok"]
+
+# array.each do |cat|
+
+#   Category.create!(name: cat)
+# end
+
+
