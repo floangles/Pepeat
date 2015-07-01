@@ -41,6 +41,7 @@ module Profile
 
     def destroy
     @recipe.destroy
+    redirect_to profile_recipes_path
     end
 
 

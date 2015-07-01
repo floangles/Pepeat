@@ -1,12 +1,16 @@
-<h1><%=link_to 'add a new recipe', new_profile_recipe_path, class: "btn, btn-warning"%></h1>
-
+<div class= "text-center">
+  <h4><%=link_to 'add a new recipe', new_profile_recipe_path, class: "btn, btn-warning"%></h4>
+</div>
 
 <%@recipes.each do |recipe| %>
 
   <div id="recipe-<%= recipe.id %>">
-    <p><%= recipe.name %></p>
+    <p>nom de la recette : <%= recipe.name %></p>
+    <p><%= recipe.price %> €</p>
     <%=link_to 'show the recipe', profile_recipe_path(recipe), class: "btn, btn-success"  %>
-    <%=link_to 'edit the recipe', edit_profile_recipe_path(recipe), class: "btn, btn-success"  %>
-    <%= link_to "Delete", recipe, method: :delete, remote: true, class: "btn btn-danger" %>
+    <%=link_to 'edit the recipe', edit_profile_recipe_path(recipe), class: "btn, btn-success"  %> </br>
+    <%= link_to "Delete", profile_recipe_path(recipe),
+          method: :delete,
+          data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
   </div>
 <% end %>
