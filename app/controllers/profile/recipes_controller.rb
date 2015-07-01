@@ -31,9 +31,17 @@ module Profile
 
     def update
       @recipe.update(recipe_params)
+      if @recipe.save
+        redirect_to profile_recipes_path
+      else
+        render :edit
+
+      end
     end
 
     def destroy
+    authorize @recipe  # TODO: Add `destroy?` to the `recipePolicy`
+    @recipe.destroy
     end
 
 

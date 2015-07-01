@@ -1,7 +1,7 @@
 <h1>c'est cool la liste</h1>
 
 <% @recipes.each do |recipe| %>
-<%= recipe.name %> <% link_to recipe_path(recipe) %>
+<%= recipe.name %> <%= link_to 'voir la recette', recipe_path(recipe), class: "btn btn-success" %>
 <% end %>
 
 

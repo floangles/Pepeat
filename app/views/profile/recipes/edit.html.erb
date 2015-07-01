@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row text-center">
+      <div class="col-xs-offset-4 col-xs-4 text-center">
+        <div>
+          <%= simple_form_for @recipe, url: profile_recipe_path do |f| %>
+            <%= f.input :name, label: 'nom de le recette', placeholder: 'tripe salto de canard en boite' %>
+            <%= f.input :numberpers, label: 'Nombre de personnes pour votre recette ' %>
+            <%= f.input :description, placeholder: 'Expliquer votre recette' %>
+            <%= f.input :cooktime, inline_label: 'Temps de cuisson' %>
+            <%= f.input :preparationtime, label: 'Temps de préparation' %>
+            <%= f.input :price,label: "Prix (en Euros)", hint: 'Mettez le prix auquel vous voulez vendre une part' %>
+            <%= f.input :bio, inline_label: 'bio' %>
+            <%= f.input :halal, inline_label: 'halal' %>
+            <%= f.input :vegan, inline_label: 'vegetalien' %>
+            <%= f.input :vegetarian, inline_label: 'vegearian' %>
+            <%= f.input :gluten, inline_label: 'gluten' %>
+            <%= f.input :lactose, inline_label: 'lactose' %>
+            <%= f.input :casher, inline_label: 'casher' %>
+            <%= f.button :submit %>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
