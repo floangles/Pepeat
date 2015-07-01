@@ -12,6 +12,7 @@ gem "devise"
 # gem "pundit"
 gem "paperclip"
 gem "aws-sdk", "< 2.0"
+gem 'nokogiri', '~> 1.6.6.2'
 
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"

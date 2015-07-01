@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   namespace :profile do
 
     resources :bookings, only: [:index, :show]
-    resources :recipes
+    resources :recipes do
+      resources :ingredients
+      resources :categories
+    end
   end
 
 end
