@@ -5,11 +5,11 @@ module Profile
     end
     def new
 
-      @recipe = Recipe.find(params[:recipe_id])
       @offer = Offer.new
     end
     def create
        @offer = current_user.offers.new(offer_params)
+
       if @offer.save
         redirect_to profile_offers_path
       else
