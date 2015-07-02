@@ -1,7 +1,7 @@
 
-<div class= "text-center">
-  <h4><%=link_to 'add a new recipe', new_profile_recipe_path, class: "btn, btn-warning"%></h4>
-</div>
+
+  <%=link_to 'add a new recipe', new_profile_recipe_path, class: "btn btn-smallbtn-warning"%>
+
 
 
 <%@recipes.each do |recipe| %>
@@ -32,5 +32,3 @@
   </div>
 <% end %>
 
-<div id='calendar'>
-</div>
