@@ -11,11 +11,18 @@ module Profile
        @offer = current_user.offers.new(offer_params)
 
       if @offer.save
-        redirect_to profile_offers_path
+        redirect_to profile_recipes_path
       else
         render :new
       end
     end
+
+    def destroy
+      @offer = current_user.offers.find(params[:id])
+      @offer.destroy
+      redirect_to profile_recipes_path
+    end
+
     def offer_params
        params.require(:offer).permit(:recipe_id, :startdate, :enddate, :portion)
     end

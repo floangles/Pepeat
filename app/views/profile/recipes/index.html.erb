@@ -1,37 +1,25 @@
 <%= render 'shared/small_navbar' %>
 
-  <%=link_to 'add a new recipe', new_profile_recipe_path, class: "btn btn-warning"%>
-
-
 <div class="container">
-  <div class="row">
+  <div class="row padded-top">
+
     <%@recipes.each do |recipe| %>
-      <div class="col-sm-6">
+      <div class="col-sm-6 text-center">
+        <%=link_to 'add a new recipe', new_profile_recipe_path, class: "btn btn-warning"%>
         <div id="recipe-<%= recipe.id %>">
           <p><%= recipe.name %></p>
-           <p><%= image_tag recipe.picture.url(:medium) %></p>
-           <p><%= recipe.id %></p>
+           <p><%= image_tag recipe.picture.url(:medium), class: "img-circle" %></p>
            <ul class="list-inline">
              <li>
               <%=link_to 'show the recipe', profile_recipe_path(recipe), class: "btn btn-success"  %>
-            </li>
-            <li>
-              <%=link_to 'edit the recipe', edit_profile_recipe_path(recipe), class: "btn btn-success"  %>
             </li>
             <li>
               <%= link_to "Delete", profile_recipe_path(recipe),
                 method: :delete,
                 data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
             </li>
-            <li>
-              <button data-toggle="modal" data-target="#offer"> Créer une offre </button>
-
-              <%= form_tag(new_profile_offer_path, method: "get", class: "text-center") do %>
-                <%= hidden_field_tag(:recipe_id, recipe.id) %>
-                <%= submit_tag("Creer une offre", class: "btn btn-default form-control") %>
-              <% end %>
-            </li>
           </ul>
+           <button data-toggle="modal" data-target="#offer"> Créer une offre </button>
         </div>
         <div class="modal fade" id="offer">
           <div class="modal-dialog">
@@ -65,10 +53,20 @@
         </div><!-- /.modal -->
       </div>
       <div class="col-sm-6">
+          <h2 class= "padded-bottom">Voici les plats que vous proposez en ligne</h2>
         <div class="row">
           <% recipe.offers.each do |offer| %>
-          <%= offer.recipe.name %>
-          <%= offer.portion%>
+          <div class="col-sm-6 padded-bottom">
+            <%=image_tag offer.recipe.picture.url(:medium), class: "img-circle img-offer" %> </br>
+            <%= offer.recipe.name %>
+            <%= offer.portion%>
+            <p> disponible <%= offer.enddate.strftime("ce %A")%> </p>
+            <p> <%= offer.startdate.strftime("de %I:%M")%>
+            <%= offer.enddate.strftime("à %I:%M")%> </p>
+            <%= link_to "Delete", profile_offer_path(offer),
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          </div>
           <% end %>
         </div>
       </div>
