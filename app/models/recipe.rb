@@ -36,7 +36,7 @@ class Recipe < ActiveRecord::Base
   belongs_to :category
   has_many :ingredients, through: :composition
   has_many :composition
-  has_many :offers
+  has_many :offers, dependent: :destroy
   validates :name, presence: true
   validates :numberpers, presence: true
   validates :description, presence: true

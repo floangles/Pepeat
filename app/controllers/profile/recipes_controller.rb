@@ -6,6 +6,8 @@ module Profile
 
     def index
       @recipes = Recipe.all
+      @offer = Offer.new
+
     end
 
     def show
