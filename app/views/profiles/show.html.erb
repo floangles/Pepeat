@@ -1,28 +1,31 @@
 
 <%= render 'shared/small_navbar' %>
 
-
-
-
-<div class= "text-center">
+<div class= "text-center padded-top padded-bottom">
 <%= link_to 'edit', edit_profile_path, class: "btn btn-success" %>
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-
-      <p><%= current_user.firstname %></p>
-      <p><%= current_user.lastname %></p>
-      <p><%= current_user.address %></p>
-      <p><%= current_user.zipcode %></p>
-      <p><%= current_user.city %></p>
-      <p><%= current_user.email %></p>
-      <p><%= current_user.phonenumber %></p>
-      <p><%= current_user.sex %></p>
-      <p><%= current_user.description %></p>
-      <p><%= current_user.delay %></p>
-
+      <%=image_tag current_user.picture.url(:medium), class: "img-circle" %>
+    </div>
+    <div class="col-sm-6">
+      <div>
+        <p><b>Prénom</b> : <%= current_user.firstname %></p>
+        <p><b>Nom</b> : <%= current_user.lastname %></p>
+        <p><b>Addresse</b> : <%= current_user.address %></p>
+        <p><b>code-postale</b> : <%= current_user.zipcode %></p>
+        <p><b>Ville</b> : <%= current_user.city %></p>
+        <p><b>Mail</b> : <%= current_user.email %></p>
+        <p><b>Numéro de téléphone</b> : <%= current_user.phonenumber %></p>
+        <p><b>sex</b> : <%= current_user.sex %></p>
+        <p><b> description</b> : <%= current_user.description %></p>
+        <p><b>Dernière commande</b> : <%= current_user.delay %> avant la préparation du plat</p>
       </div>
     </div>
+  </div>
 </div>
 
 </div>
