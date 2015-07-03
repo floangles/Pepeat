@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row padded-top">
+    <% @recipes.each do |recipe| %>
+      <% recipe.offers.each do |offer| %>
+      <div class="col-sm-6">
+
+         <p><%= image_tag offer.recipe.picture.url(:medium), class: "img-circle" %></p>
+          <p><b>nom de la recette : </b><%= offer.recipe.name %></p>
+          <p><b>Nombre de portions disponibles : </b><%= offer.portion %></p>
+          <%= link_to 'Commander', offer_path(offer), class: "btn btn-success" %>
+
+        </div>
+        <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+
