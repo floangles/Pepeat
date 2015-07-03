@@ -1,6 +1,7 @@
 <%= render 'shared/small_navbar' %>
 <div class= "relative card-title">
   <h1 class= "text-center padded-bottom">Gérez ici votre cuisine</h1>
+  <%= image_tag current_user.picture.url(:medium), class: "img-user-position img-circle"%>
 </div>
 <div class="container">
   <div class="row small-padded-top padded-bottom">
@@ -64,11 +65,11 @@
               <div class="col-sm-12 padded-bottom">
                 <div class= "relative med-padded-bottom">
                   <div class= "position-text">
-                    <b><%= offer.recipe.name %> / </b> number of portions : <%= offer.portion %> </br>
-                    <i><%= offer.enddate.strftime("ce %A")%></i>
-                    <i><%= offer.enddate.strftime("à %I:%M")%></i>
+                    <b><%= offer.recipe.name%> / </b> number of portions : <%= offer.portion %> </br>
+                    <i> disponibilité : <%= l(offer.startdate, format: '%H:%M') %> ----> </i>
+                    <i><%= l(offer.enddate, format: '%H:%M') %></i>
                   </div>
-                  <%=image_tag offer.recipe.picture.url(:medium), class: "img-circle img-offer popover-img",:"data-placement" =>"bottom", :"data-content" => "#{image_tag offer.recipe.picture.url(:medium), class: 'img-popover img-circle'} #{offer.portion}" %>
+                  <%=image_tag offer.recipe.picture.url(:medium), class: "img-circle img-offer popover-img text-center",:"data-placement" =>"bottom", :"data-content" => "#{image_tag offer.recipe.picture.url(:medium), class: 'img-popover img-circle'} #{offer.recipe.name} </br> #{offer.portion} portions" %>
                 </div>
               </div>
             <% end %>
