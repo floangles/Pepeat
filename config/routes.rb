@@ -4,12 +4,12 @@ Rails.application.routes.draw do
 
 
 
-  resources :recipes
+  resources :offers
   resource :profile, only: [:show, :edit, :update]
 
   namespace :profile do
     resources :pepeatobookings, only: [:index, :show]
-    resources :bookings, only: [:index, :show]
+    resources :bookings, only: [:index, :show, :create, :new]
     resources :offers
     resources :recipes do
       resources :ingredients

@@ -1,4 +1,4 @@
-class RecipesController < ApplicationController
+class OffersController < ApplicationController
   def index
     @recipes = Recipe.joins(:user).all
 
@@ -10,7 +10,9 @@ class RecipesController < ApplicationController
     # where users.address = "zert"
   end
   def show
-    @recipe = Recipe.find(params[:id])
+    @booking = Booking.new
+    @offer = Offer.find(params[:id])
+    @recipe = @offer.recipe
    # select recipes_id from recipes
    # inner join users on users.id = recipes.user_id
    # where users.id = recipes.user_id
