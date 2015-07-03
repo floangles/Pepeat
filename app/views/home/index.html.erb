@@ -1,41 +1,82 @@
 <div id="banner">
-
-    <h1 class="text-center" id="big_title"> Commander des plats maison prêt de chez vous </h1>
-
+  <h1 class="text-center" id="big_title"> Commander des plats maison prêt de chez vous </h1>
   <div class="form-inline">
-    <%= form_tag(recipes_path, method: "get", class: "text-center") do %>
-       <%= text_field_tag(:city, nil, placeholder: 'votre ville ?', class: 'form-control') %>
-     <%= submit_tag("Search", class: "btn-danger btn-large btn form-control", id: 'submit-btn') %>
-    <% end %>
+    <div class="container">
+      <div class="row ">
+          <%= form_tag(offers_path, method: "get", class: "text-center ") do %>
+            <%= text_field_tag(:city, nil, placeholder: 'votre ville ?', class: 'form-control form') %>
+            <%= submit_tag("Search", class: "btn-danger btn-large btn form-control", id: 'submit-btn') %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <div id="featured">
+  <h2 class="text-center">Comment ca marche ? </h2>
   <div class="container">
     <div class="row text-center">
       <div class="col-xs-12 col-sm-3">
         <%= image_tag "featuredcity.png", class: "size-featured img-center "%>
-        <p> 1 </p>
-        <p>Precisez votre ville</p>
+        <p class="number"> 1 </p>
+        <p class='text-featured'><strong>Precisez votre ville</strong></p>
       </div>
       <div class="col-xs-12 col-sm-3">
-        <%= image_tag "featureddish.png", class: "size-featured"%>
-        <p> 2 </p>
-        <p>choisissez un plat proche de chez vous</p>
+        <%= image_tag "featuredcity.png", class: "size-featured"%>
+        <p class="number"> 2 </p>
+        <p class='text-featured'><strong>choisissez un plat proche <br>de chez vous</strong></p>
       </div>
       <div class="col-xs-12 col-sm-3">
-        <%= image_tag "featureddelivery.png", class: "size-featured"%>
-        <p> 3 </p>
-        <p>recuperez votre plat</p>
+        <%= image_tag "featuredcity.png", class: "size-featured"%>
+        <p class="number"> 3 </p>
+        <p class='text-featured'><strong>recuperez votre plat</strong></p>
       </div>
       <div class="col-xs-12 col-sm-3">
-        <%= image_tag "featuredstarving.png", class: "size-featured"%>
-        <p> 4</p>
-        <p> A table !</p>
+        <%= image_tag "featuredcity.png", class: "size-featured"%>
+        <p class="number"> 4</p>
+        <p class='text-featured'><strong> A table !</strong></p>
       </div>
     </div>
   </div>
 </div>
 <div id="userstories">
+  <h2 class="text-center" id="title-talk">les utilisateurs en parlent </h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <%= image_tag "pepeato.jpg", class: 'img-style'%>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+          <div class="talk text-center">
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            <hr class="lign">
+            <p>
+              Marine de Tinder <br> Pepeato
+            </p>
+            <div class="postion">
+              <%= image_tag "noun_17562.png", class: 'icn'%>
+            </div>
+          </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <%= image_tag "user.jpg", class: 'img-style' %>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+          <div class="talk text-center">
+             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            <hr class="lign">
+            <p>
+              Jeanne <br> Pepeato
+            </p>
+            <div class="postion">
+              <%= image_tag "noun_17562.png", class: 'icn'%>
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
 
 </div>

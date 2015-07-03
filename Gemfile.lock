@@ -94,6 +94,7 @@ GEM
     fullcalendar-rails (2.3.1.0)
       jquery-rails (>= 3.1.1, < 5.0.0)
       momentjs-rails (~> 2.8, >= 2.8.4)
+    geocoder (1.2.9)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     high_voltage (2.3.0)
@@ -229,6 +230,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass
   fullcalendar-rails (~> 2.3.1.0)
+  geocoder
   high_voltage
   jquery-rails
   letter_opener
