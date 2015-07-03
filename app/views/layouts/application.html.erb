@@ -19,12 +19,17 @@
 <body>
   <%= render "shared/navbar" %>
   <%= render "shared/flashes" %>
-
-  <%= yield %>
-
+<body class="Site">
+  <header></header>
+  <main class="Site-content">
+    <%= yield %>
+  </main>
+</body>
   <%= render "shared/footer" %>
 
   <%= javascript_include_tag :application %>
   <%= yield(:after_js) %>
 </body>
 </html>
+
+

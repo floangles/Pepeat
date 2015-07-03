@@ -1,16 +1,65 @@
 <%= render 'shared/small_navbar' %>
 
-<div class= "text-center">
-  <h1><%= @recipe.name%></h1>
-  <p><%= image_tag @recipe.picture.url(:medium) %></p>
-  <p><b>nombre de personne : </b><%=@recipe.numberpers%></p>
-  <p><b>Recette : </b><%=@recipe.description%></p>
-  <p><b>temps de prepraration : </b><%=@recipe.cooktime%></p>
-  <p><b>temps de préparation : </b><%=@recipe.preparationtime%></p>
-  <p><b>price : </b><%=@recipe.price%></p>
-
-  <%=link_to 'edit the recipe', edit_profile_recipe_path(@recipe), class: "btn btn-success"  %>
+<div id="bgshowrecipe">
+  <h1 class="text-center"><%= @recipe.name.upcase%></h1>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-5">
+      <div class="card">
+        <p><b>nombre de personne : </b><%=@recipe.numberpers%></p>
+        <p><b>temps de prepraration : </b><%=@recipe.cooktime%></p>
+        <p><b>temps de préparation : </b><%=@recipe.preparationtime%></p>
+        <p><b>price : </b><%=@recipe.price%></p>
+      </div>
+      <div class="col-xs-12 col-sm-5">
+       <%= image_tag @recipe.picture.url(:medium), class: 'img-recipe' %>
+      </div>
+      <div class="col-xs-12">
+        <div class="card">
+          ingredients : TBD
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-5">
+      <div class="large-card">
+        <p><b><u>Recette :</u></b><%=@recipe.description%></p>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-2">
+        <div class="col-xs-12">
+          <div class='padding-soft '>
+            Recette crée le : <%= @recipe.created_at %>
+            Par : <%= @user.lastname.upcase %>
+            <%=link_to 'edit the recipe', edit_profile_recipe_path(@recipe), class: "btn btn-danger" %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
