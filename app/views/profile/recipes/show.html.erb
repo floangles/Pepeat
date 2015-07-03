@@ -8,6 +8,8 @@
   <p><b>temps de prepraration : </b><%=@recipe.cooktime%></p>
   <p><b>temps de préparation : </b><%=@recipe.preparationtime%></p>
   <p><b>price : </b><%=@recipe.price%></p>
+
+  <%=link_to 'edit the recipe', edit_profile_recipe_path(@recipe), class: "btn btn-success"  %>
 </div>
 
 
