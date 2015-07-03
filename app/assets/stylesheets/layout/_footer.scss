@@ -1,1 +1,29 @@
 // Your footer style
+
+ #footer {
+
+    height: 220px;
+    width: 100%;
+    border-top: 1px solid;
+    border-color: $gray;
+    background-color:$gray-darker;
+    color :$gray-lighter;
+    padding: 20px;
+  }
+
+.padded {
+  padding-top: 30px;
+}
+
+.coco {
+  font-size: 50px;
+  padding: 10px;
+}
+
+i:hover {
+color: $gray;
+}
+
+.marg {
+  margin-top: 20px;
+}

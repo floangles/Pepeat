@@ -10,6 +10,10 @@
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
+
+
 
 </head>
 <body>
@@ -18,9 +22,9 @@
 
   <%= yield %>
 
+  <%= render "shared/footer" %>
+
   <%= javascript_include_tag :application %>
   <%= yield(:after_js) %>
-
-
 </body>
 </html>

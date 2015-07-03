@@ -17,6 +17,4 @@ class OffersController < ApplicationController
    # inner join users on users.id = recipes.user_id
    # where users.id = recipes.user_id
   end
-
-
 end
