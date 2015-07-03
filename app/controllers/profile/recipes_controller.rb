@@ -5,7 +5,7 @@ module Profile
     before_action :set_recipe, only: [:show, :edit, :destroy, :update]
 
     def index
-      @recipes = Recipe.all
+      @recipes = current_user.recipes
       @offer = Offer.new
 
     end
