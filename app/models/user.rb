@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   validates :zipcode, presence: true, on: :update
   validates :city, presence: true, on: :update
 
-  validates :pepeato, presence: true
+
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
