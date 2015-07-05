@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   def index
     @recipes = Recipe.joins(:user).all
+    @booking = Booking.new
 
     if params[:city]
       @recipes = @recipes.where(users: { city: params[:city] })
