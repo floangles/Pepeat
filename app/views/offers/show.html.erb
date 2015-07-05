@@ -39,7 +39,7 @@
             Recette crée le : <%= @recipe.created_at %>
             Par : <%= @offer.recipe.user.lastname.upcase %>
           </div>
-          <button data-toggle="modal" data-target="#booking"> Commander </button>
+          <button data-toggle="modal" data-target="#booking-<%= @offer.id %>"> Commander </button>
         </div>
     </div>
   </div>
@@ -56,7 +56,7 @@
 
 <!--modale booking-->
 
-<div class="modal fade" id="booking">
+<div class="modal fade" id="booking-<%= @offer.id %>">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

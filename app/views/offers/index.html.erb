@@ -9,7 +9,7 @@
             <div class="little_card relative">
                 <%= image_tag offer.recipe.user.picture.url(:medium), class: "img-circle img-index" %>
               <div class= "small-padded-bottom">
-                <button data-toggle="modal" data-target="#booking" class= "btn btn-success">
+                <button data-toggle="modal" data-target="#booking-<%=offer.id%>" class= "btn btn-success">
                 Commander </button>
               </div>
              <p><%= image_tag offer.recipe.picture.url(:medium), class: "photo" %></p>
@@ -27,7 +27,7 @@
 
         <!--modale booking-->
 
-          <div class="modal fade" id="booking">
+          <div class="modal fade" id="booking-<%=offer.id%>">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -35,7 +35,7 @@
                   <h4 class="modal-title text-center"> BOOKING </h4>
                 </div>
                 <div class="modal-body form-inline">
-                  <%= simple_form_for [@offer, @booking], url: profile_bookings_path do |f| %>
+                  <%= simple_form_for [offer, @booking], url: profile_bookings_path do |f| %>
                     <div class= "form-offer">
                       <%= f.input :quantity, label: 'Combien de parts voulez vous réserver' %>
                       <%= f.input :date, label: 'A quelle heure voulez vous venir le chercher' %>

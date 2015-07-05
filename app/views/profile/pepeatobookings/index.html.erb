@@ -1,20 +1,49 @@
+<%= render 'shared/small_navbar' %>
+<h1 class= "text-center">Commandes en cours</h1>
 
-<h1>hello booking</h1>
+<div class="container">
+  <div class="row">
+    <% @offers.each do |offer| %>
+      <div class="col-xs-12">
+        <div class= "card-commande relative">
+          <div class="row">
+            <div class= "row-top">
+              <div class="col-xs-12">
+                <%= offer.recipe.name %>
+                <div class= "price-position text-center">
+                  <p><%= offer.recipe.price %> €</p>
+                </div>
+                <div class= "commande-position">
+                  <%= image_tag offer.recipe.picture.url(:medium), class: "img-circle"%>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class= "row-bottom relative">
+              <% offer.bookings.each do |booking| %>
+                <div class="col-xs-2">
+                  <div class= "card-booking relative">
+                    <div>
+                      <%= image_tag booking.user.picture.url(:medium), class: "img-circle img-booking" %>
+                    </div>
+                    <div class= "prenom-booking">
+                      <%= booking.user.firstname %>
+                    </div>
+                    <div class= 'quantity-position'>
+                      <p>A réservé <%= booking.quantity %> part</p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end %>
+  </div>
+</div>
 
-
-<% @pepeatobookings.each do |booking| %>
-<ul>
-  <li><%= booking.offer.recipe.name %><%= link_to "voir la commande", profile_pepeatobooking_path(booking)%></li>
-  <li><%= booking.offer.recipe.description %></li>
-  <li><%= booking.offer.recipe.price %></li>
-</ul>
-
-
-<%end %>
-
-
-<%= link_to "Mes informations personnelles", profile_path %>
-<%= link_to "Mettre en ligne une nouvelle recette" %>
 
 
 
