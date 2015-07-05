@@ -28,13 +28,13 @@
           <% if current_user.pepeato == true %>
             <li>
               <%= link_to profile_recipes_path do %>
-                Ma cuisine
+                Mes recettes
               <% end %>
             </li>
           <% end %>
 
           <li>
-            <% if current_user.pepeato == true%>
+            <% if current_user.pepeato == true %>
               <%= link_to "Mes commandes", profile_pepeatobookings_path %>
               <% else %>
               <%= link_to "Mes commandes", profile_bookings_path %>
@@ -42,7 +42,7 @@
 
           </li>
           <li>
-            <% if current_user.pepeato == true%>
+            <% if current_user.pepeato == true %>
               <%= link_to "#" do %>
                 Pepeat community
               <% end %>
