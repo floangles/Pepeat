@@ -1,44 +1,42 @@
 <div id="banner">
   <div class="text-center" id="big_title">
-    <h1 class="padded-bottom">Pepeat </h1>
-    <h2>Commander des plats maison près de chez vous </h2>
+    <h2> Commandez des plats maison cuisinés par des passionnés</h2>
   </div>
-  <div class="form-inline">
+  <div class="form-inline" id= "position-home-form">
     <div class="container">
       <div class="row ">
-          <%= form_tag(offers_path, method: "get", class: "text-center ") do %>
-            <%= text_field_tag(:city, nil, placeholder: 'votre ville ?', class: 'form-control form') %>
-            <%= submit_tag("Search", class: "btn-danger btn-large btn form-control", id: 'submit-btn') %>
-          <% end %>
-        </div>
+        <%= form_tag(offers_path, method: "get", class: "text-center ") do %>
+          <%= text_field_tag(:city, nil, placeholder: 'votre ville ?', class: 'form-control form') %>
+          <%= submit_tag("Search", class: "btn-danger btn-large btn form-control", id: 'submit-btn') %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
+
 <div id="featured">
-  <h2 class="text-center">Comment ca marche ? </h2>
+  <h2 class="text-center padded-bottom"> Choisissez votre camp </h2>
   <div class="container">
     <div class="row text-center">
-      <div class="col-xs-12 col-sm-3">
-        <%= image_tag "featuredcity.png", class: "size-featured img-center "%>
-        <p class="number"> 1 </p>
-        <p class='text-featured'><strong>Precisez votre ville</strong></p>
+      <div class="col-xs-12 col-sm-6">
+        <div class= "card-home-presentation">
+          <%= image_tag "cuistot.jpg", class: "img-center img-circle ", id: "size-picture-explaination"%>
+          <h2>Pepeato</h2>
+          <p> Les pepeatos sont la richesses de notre service.
+            Vous voulez partager votre savoir culinaire et faire connaître vos talents du grand plublic tout en vous faisant un appoint financier ?
+          <p><br> <b>Inscrivez vous comme Pepeato</b> </p></p>
+          <%= link_to 'Par ici', new_user_registration_path(pepeato: true), class: "btn btn-sm btn-primary"  %>
+        </div>
       </div>
-      <div class="col-xs-12 col-sm-3">
-        <%= image_tag "featuredcity.png", class: "size-featured"%>
-        <p class="number"> 2 </p>
-        <p class='text-featured'><strong>choisissez un plat proche <br>de chez vous</strong></p>
-      </div>
-      <div class="col-xs-12 col-sm-3">
-        <%= image_tag "featuredcity.png", class: "size-featured"%>
-        <p class="number"> 3 </p>
-        <p class='text-featured'><strong>recuperez votre plat</strong></p>
-      </div>
-      <div class="col-xs-12 col-sm-3">
-        <%= image_tag "featuredcity.png", class: "size-featured"%>
-        <p class="number"> 4</p>
-        <p class='text-featured'><strong> A table !</strong></p>
+      <div class="col-xs-12 col-sm-6">
+        <div class= "card-home-presentation">
+         <%= image_tag "user.png", class: "img-center img-circle", id: "size-picture-explaination"%>
+          <h2>Pepeato seeker</h2>
+          <p> Vous n'avez pas le temps de faire à manger ou vous n'avez simplement pas l'envie ? Vous cherchez néanmoins des plats maison de qualités cuisinés par des gens dont vous pouvez avoir confiance ? </p>
+          <p><br> <b>Inscrivez vous comme Pepeato seeker</b> </p></p>
+          <%= link_to 'Par ici', new_user_registration_path, class: "btn btn-sm btn-primary"  %>
+        </div>
       </div>
     </div>
   </div>

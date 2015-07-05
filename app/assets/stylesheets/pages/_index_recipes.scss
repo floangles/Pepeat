@@ -7,8 +7,11 @@ right: 20px;
 }
 
 .img-recipes {
-height: 120px;
-width: 120px;
+height: 130px;
+width: 170px;
+position: absolute;
+top: 0px;
+left:0px;
 }
 
 .card-recipes {
@@ -64,4 +67,36 @@ width: 120px;
   border: 1px solid grey;
 }
 
+.card-recipes-index {
+  width: 170px;
+  height: 250px;
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: solid 1px rgb(220,220,220);
+  color: black;
+  padding: 20px;
+  padding-right: 20px;
+  font-size: 15px;
+  font-weight: 300;
+}
 
+.text-recipes{
+  position: absolute;
+  bottom: 109px;
+  left: 0px;
+  width: 170px;
+    border-bottom: 1px solid grey;
+}
+
+.button-show-recipe-position {
+position: absolute;
+  bottom: 69px;
+  left: 32px;
+}
+
+.create-offer-position{
+  position: absolute;
+  bottom: 14px;
+  left: 54px;
+}

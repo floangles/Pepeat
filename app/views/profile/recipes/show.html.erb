@@ -33,9 +33,9 @@
           <div class='padding-soft '>
             Recette crée le : <%= @recipe.created_at %>
             Par : <%= @user.lastname.upcase %>
-            <%=link_to 'edit the recipe', edit_profile_recipe_path(@recipe), class: "btn btn-success" %>
+            <%=link_to 'Editer la recette', edit_profile_recipe_path(@recipe), class: "btn btn-success" %>
             <div class= "small-padded-top">
-              <%= link_to "Delete", profile_recipe_path(@recipe),
+              <%= link_to "Supprimer", profile_recipe_path(@recipe),
                      method: :delete,
                      data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
             </div>

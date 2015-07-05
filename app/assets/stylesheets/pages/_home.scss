@@ -1,15 +1,14 @@
 #banner {
   background-image: asset-url('home.jpg');
-  padding-top: 400px;
-  padding-bottom: 400px;
+ padding: 270px;
   background-size: cover;
 
 
 }
 #featured {
   background-color: $gray-lighter;
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .number {
   font-size: 40px;
@@ -92,4 +91,22 @@
 
 .lign {
   margin-bottom: 100px;
+}
+
+#position-home-form {
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+}
+
+#size-picture-explaination {
+  height: 100px;
+  width: 100px;
+}
+
+.card-home-presentation {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

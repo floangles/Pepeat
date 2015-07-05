@@ -1,28 +1,46 @@
-<div class="container">
-    <div class="row text-center">
-      <div class="col-xs-offset-4 col-xs-4 text-center">
-        <div>
-          <%= simple_form_for @recipe, url: profile_recipes_path do |f| %>
-            <%= f.input :name, label: 'nom de le recette', placeholder: 'tripe salto de canard en boite' %>
-            <%= f.input :numberpers, label: 'Nombre de personnes pour votre recette ' %>
-            <%= f.input :description, placeholder: 'Expliquer votre recette' %>
-            <%= f.input :cooktime, inline_label: 'Temps de cuisson' %>
-            <%= f.input :preparationtime, label: 'Temps de préparation' %>
-            <%= f.input :price,label: "Prix (en Euros)", hint: 'Mettez le prix auquel vous voulez vendre une part' %>
-            <%= f.input :bio, inline_label: 'bio' %>
-            <%= f.input :halal, inline_label: 'halal' %>
-            <%= f.input :vegan, inline_label: 'vegetalien' %>
-            <%= f.input :vegetarian, inline_label: 'vegearian' %>
-            <%= f.input :gluten, inline_label: 'gluten' %>
-            <%= f.input :lactose, inline_label: 'lactose' %>
-            <%= f.input :casher, inline_label: 'casher' %>
-            <%= f.file_field :picture %>
-            <%= f.button :submit %>
 
-          <% end %>
+<%= render 'shared/small_navbar' %>
+<div class="container">
+  <div class="row text-center padded-bottom">
+    <%= simple_form_for @recipe, url: profile_recipes_path do |f| %>
+      <div class="col-xs-12 col-sm-12 text-center">
+        <div class= "card-step-1">
+          <p class= "padded-bottom"><b>1/ </b> Description de la recette</p>
+          <%= f.input :name, label: 'Nom de la recette', placeholder: 'tripe salto de canard en boite', class: "form-control form-inline" %>
+          <%= f.input :numberpers, label: 'Nombre de personnes pour votre recette ' %>
+          <%= f.input :description, placeholder: 'Expliquer votre recette' %>
         </div>
       </div>
-    </div>
+      <div class="col-xs-12 col-sm-12">
+        <div class= "card-step-2">
+          <p><b>2/ </b>Ingrédients</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 text-center">
+        <div class= "card-step-1">
+          <p class= "padded-bottom"><b>3/ </b>Détails</p>
+          <%= f.input :cooktime, inline_label: 'Temps de cuisson' %>
+          <%= f.input :preparationtime, label: 'Temps de préparation' %>
+          <div class= "form-inline">
+          <%= f.input :bio, inline_label: 'bio' %>
+          <%= f.input :halal, inline_label: 'halal' %>
+          <%= f.input :vegan, inline_label: 'vegetalien' %>
+          <%= f.input :vegetarian, inline_label: 'vegearian' %>
+          <%= f.input :gluten, inline_label: 'gluten' %>
+          <%= f.input :lactose, inline_label: 'lactose' %>
+          <%= f.input :casher, inline_label: 'casher' %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 text-center padded-bottom">
+        <div class= "card-step-4 text-center">
+          <p><b>4/ </b>Ajouter une photo</p>
+          <%= f.file_field :picture, class: "form-inline" %>
+        </div>
+      </div>
+        <%= f.button :submit %>
+    <% end %>
   </div>
 </div>
+
 
