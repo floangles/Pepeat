@@ -4,17 +4,22 @@
 <div class="container">
   <div class="row">
     <% @offers.each do |offer| %>
-      <div class="col-xs-12">
+      <div class="col-xs-12 padded-bottom">
         <div class= "card-commande relative">
           <div class="row">
             <div class= "row-top">
               <div class="col-xs-12">
-                <%= offer.recipe.name %>
+                <div class= "card-name-offer text-center">
+                  <span class= "text-ajustment"><%= offer.recipe.name%></br></span>
+                </div>
+                <div class= "position-portion">
+                  <span class= "offer-ajustement"><%= offer.portion %> <p>Portions proposées</p></span>
+                </div>
                 <div class= "price-position text-center">
-                  <p><%= offer.recipe.price %> €</p>
+                  <p><%= offer.recipe.price %> € /part</p>
                 </div>
                 <div class= "commande-position">
-                  <%= image_tag offer.recipe.picture.url(:medium), class: "img-circle"%>
+                  <%= image_tag offer.recipe.picture.url(:medium), class: "img-circle img-position"%>
                 </div>
               </div>
             </div>
@@ -38,9 +43,17 @@
               <% end %>
             </div>
           </div>
+          <div class= "position-leftportion">
+            <span class= "leftportion-ajustement"><%= available_portions(offer) %> <p> Portions restantes </p>
+            </span>
+            <%#= link_to "Connect", {controller:"offers_controller", action:"index", my_param: '@leftportion'}%>
+          </div>
+          <div>
+            <b class= "text-left-position"></b>
+          </div>
         </div>
       </div>
-    <%end %>
+    <% end %>
   </div>
 </div>
 

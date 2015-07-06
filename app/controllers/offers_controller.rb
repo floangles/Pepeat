@@ -10,6 +10,7 @@ class OffersController < ApplicationController
     # inner join users on users.id = recipes.user_id
     # where users.address = "zert"
   end
+
   def show
     @booking = Booking.new
     @offer = Offer.find(params[:id])

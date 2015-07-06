@@ -10,7 +10,6 @@
   margin-bottom: 10px;
   border-radius: 3px;
   border: solid 1px rgb(220,220,220);
-  padding: 20px;
   font-size: 15px;
   font-weight: 300;
   margin-top:50px;
@@ -44,4 +43,16 @@ z-index:-1;
   position: absolute;
   top: -42px;
   right: 84px;
+}
+
+.position-date {
+
+  width: 230px;
+  height: auto;
+
+  border-bottom: solid 1px rgb(220,220,220);
+  border-top: solid 1px rgb(220,220,220);
+
+
+
 }
