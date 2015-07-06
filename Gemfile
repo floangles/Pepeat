@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.2"
 
+
 gem "rails", "4.2.3"
 gem "pg"
 gem "figaro"
@@ -25,6 +26,7 @@ gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
 gem "geocoder"
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem "spring"
