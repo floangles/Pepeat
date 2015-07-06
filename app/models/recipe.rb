@@ -50,5 +50,12 @@ has_attached_file :picture,
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
+include AlgoliaSearch
+
+  algoliasearch do
+     attributes :name, :numberpers, :preparationtime # associated index settings can be configured from here
+     attributesToIndex ['name', 'numberpers', 'preparationtime']
+      customRanking ['asc(name)']
+  end
 
 end

@@ -1,0 +1,28 @@
+
+<h1 class="text-center">Partagez vos recettes avec d'autres pepeato !</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-9 col-sm-3">
+      <p>Rechercher une recette</p>
+      <div id="algolia">cool</div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <% @recipes.each do |recipe| %>
+        <%= recipe.user.firstname %>
+        <%= recipe.user.lastname %>
+        <%= recipe.numberpers %>
+        <%= recipe.cooktime %>
+        <%= recipe.preparationtime %>
+        <%= image_tag recipe.picture.url(:medium)%>
+        <%= link_to "voir la recette", profile_recipe_path(recipe), class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

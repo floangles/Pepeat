@@ -48,6 +48,13 @@ module Profile
     end
 
 
+    private
+
+    def algolia
+    @recipes= Recipe.reindex!
+    end
+
+
     def set_recipe
       @recipe = current_user.recipes.find(params[:id])
     end
