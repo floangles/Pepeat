@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :profile do
     resources :pepeatobookings, only: [:index, :show]
     resources :bookings, only: [:index, :show, :create, :new]
+    resources :pepeatcommunity
     resources :offers
     resources :recipes do
       resources :ingredients

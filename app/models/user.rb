@@ -56,11 +56,14 @@ class User < ActiveRecord::Base
   validates :lastname, presence: true, on: :update
   validates :phonenumber, presence: true, uniqueness: true, on: :update
   validates :address, presence: true, on: :update
-  validates :delay, presence: true, on: :update
+  validates :city, presence: true, on: :update
+
+
   # validates :street_number, presence: true, on: :update
   # validates :route, presence: true, on: :update
   # validates :locality, presence: true, on: :update
   # validates :country, presence: true, on: :update
+
 
 
 

@@ -48,6 +48,14 @@ module Profile
     end
 
 
+    private
+
+    def algolia
+      @recipes =Algolia.init_index('Recipe').set_settings({"attributesToIndex"=>["name", "numberpers", "preparationtime"], "customRanking"=>["asc(name)"]})
+
+    end
+
+
     def set_recipe
       @recipe = current_user.recipes.find(params[:id])
     end

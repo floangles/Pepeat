@@ -1,0 +1,29 @@
+
+<h1 class="text-center">Partagez vos recettes avec d'autres pepeato !</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="text-center">Rechercher une recette</h2>
+  <!-- algolia -->
+      <div class="search">
+        <input class="typehead" type="text" placeholder="Search by recipe, ..." id="recipe-search" spellcheck="false">
+      </div>
+      <div class="results">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6" id="recipes">
+
+          </div>
+        </div>
+      </div>
+  </div>
+<br><br><br><br><br><br><br><br>
+
+
+
+
+
+<% content_for :after_js do %>
+  <script src="//cdn.jsdelivr.net/typeahead.js/0.10.5/typeahead.jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+
+<% end %>
