@@ -6,6 +6,7 @@ class AddInfosToUser < ActiveRecord::Migration
     add_column :users, :phonenumber, :string
     add_column :users, :sex, :string
     add_column :users, :address, :string
+    add_column :users, :city, :string
     add_column :users, :pseudo, :string
     add_column :users, :pepeato, :boolean
     add_column :users, :description, :text
