@@ -24,7 +24,7 @@ module Profile
     end
 
     def offer_params
-       params.require(:offer).permit(:recipe_id, :startdate, :enddate, :portion)
+       params.require(:offer).permit(:recipe_id, :startdate, :enddate, :portion, :delay, :price)
     end
   end
 end

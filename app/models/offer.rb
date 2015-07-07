@@ -24,4 +24,6 @@ class Offer < ActiveRecord::Base
   validates :portion, presence: true
   validates :startdate, presence: true
   validates :enddate, presence: true
+  validates :price, presence: true
+  validates :delay, presence: true
 end
