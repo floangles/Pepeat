@@ -17,14 +17,18 @@ class ProfilesController < ApplicationController
     else
       render :edit
     end
-  end
 
+   # autocomplete
+
+
+# fin autocomplete
+  end
 
   def set_user
     @user = current_user
   end
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :phonenumber, :address, :description, :delay, :zipcode, :city, :email, :sex, :picture)
+    params.require(:user).permit(:firstname, :lastname, :phonenumber, :address, :city, :description, :delay, :email, :sex, :picture)
   end
 end

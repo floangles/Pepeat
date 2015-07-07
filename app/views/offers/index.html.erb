@@ -1,47 +1,76 @@
+<div id="map" class="map"></div>
 
-  <div class="row">
-          <%= image_tag "https://placeholdit.imgix.net/~text?txtsize=33&txt=400x1000&w=400&h=1000", class: "sidebar"%>
-
-    <div class=" col-xs-12  col-sm-8 col-sm-offset-4">
+<div class="results-container">
+  <div class="container-fluid">
+    <div class="row">
       <% @recipes.each do |recipe| %>
         <% recipe.offers.each do |offer| %>
-          <div class="col-xs-12 col-sm-4 padded-bottom">
-            <div class="little_card relative">
-                <%= image_tag offer.recipe.user.picture.url(:medium), class: "img-circle img-index" %>
-              <div class= "small-padded-bottom">
-                <button data-toggle="modal" data-target="#booking-<%=offer.id%>" class= "btn btn-success">
-                Commander </button>
+          <div class= "card-padding-map">
+            <div class="col-xs-12 col-sm-4 padded-bottom">
+
+              <div class="card-recipe">
+                <div class="card-recipe-header" style="background-image: url('<%= asset_path offer.recipe.picture.url(:medium) %>');">
+                  <div class="card-recipe-filter"></div>
+                  <div class="card-recipe-header-infos">
+                    <h3><%= offer.recipe.name %></h3>
+                    <p>Grillades</p>
+                  </div>
+                  <div class="card-recipe-header-portions">
+                    <%= available_portions(offer) %> x parts
+                  </div>
+                </div>
+                <div class="card-recipe-body">
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <%= image_tag offer.recipe.user.picture.url(:medium), class: "img-circle img-index" %>
+                    </div>
+                    <div class="col-xs-9">
+                      <h3>
+                        <%= offer.recipe.user.firstname.capitalize %> <%= offer.recipe.user.lastname.capitalize %>
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 text-center">
+                      <p class="card-recipe-pickup">
+                        <%= day_in_french(offer.startdate) %> <br>
+                        <%= offer.startdate.strftime('%l:%M%P')%> à <%= offer.enddate.strftime('%l:%M%P') %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="footer text-right">
+                  <ul class="list-inline">
+                    <li>
+                      <a data-toggle="modal" data-target="#booking-<%=offer.id%>" class="card-recipe-control">
+                        Commander
+                      </a>
+                    </li>
+                    <li>
+                      <%= link_to offer_path(offer), class: "card-recipe-control" do %>
+                        <i class="fa fa-eye"></i>
+                      <% end %>
+                    </li>
+                  </ul>
+                </div>
               </div>
-             <p><%= image_tag offer.recipe.picture.url(:medium), class: "photo" %></p>
-              <h4><%= offer.recipe.name %></h4>
-              <div class= "position-date">
-                <p>plat disponible <%= day_in_french(offer.startdate) %></p>
-                <p>de <%= offer.startdate.strftime('%l:%M%P')%> à <%= offer.enddate.strftime('%l:%M%P') %></p>
-              </div>
-              <p><b>Nombre de portions disponibles : </b><%= available_portions(offer) %></p>
-              <div class="godless img-circle">
-                <p><b></b><%= offer.price%>€</p>
-              </div>
-              <%= link_to 'Voir la recette', offer_path(offer), class: "btn btn-default" %>
             </div>
           </div>
 
-
-
-        <!--modale booking-->
-
+          <!--modale booking-->
           <div class="modal fade" id="booking-<%=offer.id%>">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <h4 class="modal-title text-center"> BOOKING </h4>
-                  <p>Il reste <%= @leftportion%></p>
                 </div>
+
                 <div class="modal-body form-inline">
                   <%= simple_form_for [offer, @booking], url: profile_bookings_path do |f| %>
                     <div class= "form-offer">
-                      <%= f.input :quantity, min: 1, max: 15, label: 'Combien de parts voulez vous réserver', class: "form-control" %>
+                      <%= f.input :quantity, label: 'Combien de parts voulez vous réserver', collection: 1..available_portions(offer), class: "form-control" %>
                       <%= f.input :date, label: 'A quelle heure voulez vous venir le chercher' %>
                       <%= f.input :offer_id, as: :hidden, :input_html => { :value => offer.id }%>
                       <%= f.button :submit %>
@@ -53,14 +82,25 @@
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
-
-
-
+        <% end %>
       <% end %>
-    <% end %>
-
+    </div>
   </div>
 </div>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
+<% end %>
 
 
 

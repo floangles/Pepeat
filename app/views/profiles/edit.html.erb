@@ -12,9 +12,8 @@
 
               <%= f.input :firstname %>
               <%= f.input :lastname %>
-              <%= f.input :address %>
-              <%= f.input :zipcode %>
-              <%= f.input :city %>
+              <%= f.input :address, placeholder: "Start typing your address"%>
+              <%= f.input :city, input_html: {id: "locality"} %>
               <%= f.input :email %>
               <%= f.input :phonenumber %>
               <%= f.input :sex %>
@@ -32,7 +31,6 @@
     </div>
   </div>
 </div>
-
 
 
 

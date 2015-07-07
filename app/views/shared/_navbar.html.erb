@@ -21,7 +21,9 @@
           </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <%= image_tag current_user.picture.url(:medium), class: "img-avatar" %>
+              <% if current_user.picture_file_name %>
+                <%= image_tag current_user.picture.url(:medium), class: "img-avatar" %>
+              <% end %>
               Profile <span class="caret"></span>
             <% end %>
             <ul class="dropdown-menu" role="menu">

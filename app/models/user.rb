@@ -21,12 +21,11 @@
 #  phonenumber            :string
 #  sex                    :string
 #  address                :string
+#  city                   :string
 #  pseudo                 :string
 #  pepeato                :boolean
 #  description            :text
 #  delay                  :string
-#  city                   :string
-#  zipcode                :integer
 #  picture_file_name      :string
 #  picture_content_type   :string
 #  picture_file_size      :integer
@@ -57,8 +56,15 @@ class User < ActiveRecord::Base
   validates :lastname, presence: true, on: :update
   validates :phonenumber, presence: true, uniqueness: true, on: :update
   validates :address, presence: true, on: :update
-  validates :zipcode, presence: true, on: :update
   validates :city, presence: true, on: :update
+
+
+  # validates :street_number, presence: true, on: :update
+  # validates :route, presence: true, on: :update
+  # validates :locality, presence: true, on: :update
+  # validates :country, presence: true, on: :update
+
+
 
 
 
