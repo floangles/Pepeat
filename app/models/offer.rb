@@ -9,6 +9,8 @@
 #  enddate    :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  price      :integer
+#  delay      :string
 #
 # Indexes
 #

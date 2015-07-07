@@ -9,6 +9,7 @@
 #  description          :text
 #  cooktime             :string
 #  preparationtime      :string
+#  price                :integer
 #  halal                :boolean
 #  vegan                :boolean
 #  vegetarian           :boolean

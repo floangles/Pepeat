@@ -6,7 +6,8 @@
     <div class="container">
       <div class="row ">
         <%= form_tag(offers_path, method: "get", class: "text-center ") do %>
-          <%= text_field_tag(:city, nil, placeholder: 'votre ville ?', class: 'form-control form') %>
+          <%= text_field_tag(:user_address, nil, placeholder: 'votre ville ?', class: 'form-control form') %>
+          <%= number_field_tag(:rayon, nil, placeholder: 'rayon', class: 'form-control form') %>
           <%= submit_tag("Search", class: "btn-danger btn-large btn form-control", id: 'submit-btn') %>
         <% end %>
       </div>

@@ -25,5 +25,9 @@
 <% content_for :after_js do %>
   <script src="//cdn.jsdelivr.net/typeahead.js/0.10.5/typeahead.jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      initAlgolia();
+    })
+  <% end %>
 <% end %>
