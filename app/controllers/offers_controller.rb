@@ -3,9 +3,13 @@ class OffersController < ApplicationController
     @recipes = Recipe.joins(:user).all
     @booking = Booking.new
 
-    if params[:city]
-      @recipes = @recipes.where(users: { city: params[:city] })
+    if params[:user_address]
+      @users = User.near(params[:user_address])
+      @recipes = []
+      @users.each { |user| @recipes << user.recipes }
+      @recipes = @recipes.flatten
     end
+
     # select * from recipes
     # inner join users on users.id = recipes.user_id
     # where users.address = "zert"
