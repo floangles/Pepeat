@@ -48,6 +48,12 @@
                           <%= f.input :portion, inline_label: 'portion' %>
                         </div>
                         <%= f.input :recipe_id, as: :hidden, :input_html => { :value => recipe.id }%>
+                        <div>
+                          <%= f.input :price, inline_label: 'Prix' %>
+                        </div>
+                        <div>
+                          <%= f.input :delay, inline_label: 'Delay' %>
+                        </div>
                         <div class= "text-center">
                           <%= f.button :submit %>
                         </div>
