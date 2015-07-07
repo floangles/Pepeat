@@ -65,13 +65,12 @@
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <h4 class="modal-title text-center"> BOOKING </h4>
-                  <p>Il reste <%= @leftportion%></p>
                 </div>
 
                 <div class="modal-body form-inline">
                   <%= simple_form_for [offer, @booking], url: profile_bookings_path do |f| %>
                     <div class= "form-offer">
-                      <%= f.input :quantity, min: 1, max: 15, label: 'Combien de parts voulez vous réserver', class: "form-control" %>
+                      <%= f.input :quantity, label: 'Combien de parts voulez vous réserver', collection: 1..available_portions(offer), class: "form-control" %>
                       <%= f.input :date, label: 'A quelle heure voulez vous venir le chercher' %>
                       <%= f.input :offer_id, as: :hidden, :input_html => { :value => offer.id }%>
                       <%= f.button :submit %>
