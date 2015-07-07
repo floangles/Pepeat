@@ -3,85 +3,89 @@
   <h1 class= "text-center padded-bottom">Gérez ici vos recettes</h1>
   <%= image_tag current_user.picture.url(:medium), class: "img-user-position img-circle"%>
 </div>
+
+
 <div class="container">
-  <div class="row small-padded-top padded-bottom">
-    <div class="col-sm-6 text-center padded-right">
-      <h3>Vos recettes</h3>
-      <%=link_to 'Créer une recette', new_profile_recipe_path, class: "btn btn-warning"%>
-      <div class="row padded-top">
-        <% @recipes.each do |recipe| %>
-          <div class="col-sm-4">
-            <div id="recipe-<%= recipe.id %>" class= "small-padded-bottom">
-              <div class= "card-recipes-index">
-                <%= link_to image_tag(recipe.picture.url(:medium), :alt => "image recipe", class: "img-recipes"), profile_recipe_path(recipe) %>
-                <div class= "text-recipes text-center">
-                  <p><%= recipe.name %></p>
-                </div>
-                <div class= "button-show-recipe-position">
-                  <%= link_to 'voir la recette', profile_recipe_path(recipe), class: "btn btn-sm btn-primary"%>
-                </div>
-                <div class= "create-offer-position">
-                  <button data-toggle="modal" data-target="#offer-<%= recipe.id %>"> Vendre</button>
-                </div>
-              </div>
-            </div>
-            <div class="modal fade" id="offer-<%= recipe.id %>">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title text-center"><%=recipe.name%></h4>
-                  </div>
-                  <div class="modal-body form-inline">
-
-                    <%= simple_form_for @offer, url: profile_offers_path do |f| %>
-                      <div class= "form-offer">
-                        <%= f.input :startdate, label: 'Début' %>
-                      </div>
-                      <div class= "form-offer">
-                        <%= f.input :enddate, label: 'Fin' %>
-                      </div>
-                      <div class= "form-offer">
-                        <%= f.input :portion, inline_label: 'portion' %>
-                      </div>
-                      <%= f.input :recipe_id, as: :hidden, :input_html => { :value => recipe.id }%>
-                      <div class= "text-center">
-                        <%= f.button :submit %>
-                      </div>
-                    <% end %>
-
-                  </div>
-                  <div class="modal-footer">
-                    <p class= "text-center">Choisissez le créneau pour lequel votre plat sera <b>disponible</b></p>
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-sm-6 padded-left text-center">
-      <div class= "card-recipes">
-        <h3 class= "med-padded-bottom">Vos offres en ligne</h3>
-        <div class="row">
+  <div class="container-fluid">
+    <div class="row small-padded-top padded-bottom">
+      <div class="col-sm-6 text-center padded-right">
+        <h3>Vos recettes</h3>
+        <%=link_to 'Créer une recette', new_profile_recipe_path, class: "btn btn-warning"%>
+        <div class="row padded-top">
           <% @recipes.each do |recipe| %>
-            <% recipe.offers.each do |offer| %>
-              <div class="col-sm-12 padded-bottom">
-                <div class= "relative med-padded-bottom">
-                  <div class= "position-text">
-                    <%= link_to "Delete", profile_offer_path(offer),
-               method: :delete,
-               data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
-                    <b><%= offer.recipe.name%> / </b> number of portions : <%= offer.portion %> </br>
-                    <i> disponibilité : <%= l(offer.startdate, format: '%H:%M') %> ----> </i>
-                    <i><%= l(offer.enddate, format: '%H:%M') %></i>
+            <div class="col-sm-4">
+              <div id="recipe-<%= recipe.id %>" class= "small-padded-bottom">
+                <div class= "card-recipes-index">
+                  <%= link_to image_tag(recipe.picture.url(:medium), :alt => "image recipe", class: "img-recipes"), profile_recipe_path(recipe) %>
+                  <div class= "text-recipes text-center">
+                    <p><%= recipe.name %></p>
                   </div>
-                  <%=image_tag offer.recipe.picture.url(:medium), class: "img-circle img-offer popover-img text-center",:"data-placement" =>"bottom", :"data-content" => "#{image_tag offer.recipe.picture.url(:medium), class: 'img-popover img-circle'} #{offer.recipe.name} </br> #{offer.portion} portions" %>
+                  <div class= "button-show-recipe-position">
+                    <%= link_to 'voir la recette', profile_recipe_path(recipe), class: "btn btn-sm btn-primary"%>
+                  </div>
+                  <div class= "create-offer-position">
+                    <button data-toggle="modal" data-target="#offer-<%= recipe.id %>"> Vendre</button>
+                  </div>
                 </div>
               </div>
-            <% end %>
+              <div class="modal fade" id="offer-<%= recipe.id %>">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title text-center"><%=recipe.name%></h4>
+                    </div>
+                    <div class="modal-body form-inline">
+
+                      <%= simple_form_for @offer, url: profile_offers_path do |f| %>
+                        <div class= "form-offer">
+                          <%= f.input :startdate, label: 'Début' %>
+                        </div>
+                        <div class= "form-offer">
+                          <%= f.input :enddate, label: 'Fin' %>
+                        </div>
+                        <div class= "form-offer">
+                          <%= f.input :portion, inline_label: 'portion' %>
+                        </div>
+                        <%= f.input :recipe_id, as: :hidden, :input_html => { :value => recipe.id }%>
+                        <div class= "text-center">
+                          <%= f.button :submit %>
+                        </div>
+                      <% end %>
+
+                    </div>
+                    <div class="modal-footer">
+                      <p class= "text-center">Choisissez le créneau pour lequel votre plat sera <b>disponible</b></p>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+            </div>
           <% end %>
+        </div>
+      </div>
+      <div class="col-sm-6 padded-left text-center">
+        <div class= "card-recipes">
+          <h3 class= "med-padded-bottom">Vos offres en ligne</h3>
+          <div class="row">
+            <% @recipes.each do |recipe| %>
+              <% recipe.offers.each do |offer| %>
+                <div class="col-sm-12 padded-bottom">
+                  <div class= "relative med-padded-bottom">
+                    <div class= "position-text">
+                      <%= link_to "Delete", profile_offer_path(offer),
+                 method: :delete,
+                 data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+                      <b><%= offer.recipe.name%> / </b> number of portions : <%= offer.portion %> </br>
+                      <i> disponibilité : <%= l(offer.startdate, format: '%H:%M') %> ----> </i>
+                      <i><%= l(offer.enddate, format: '%H:%M') %></i>
+                    </div>
+                    <%=image_tag offer.recipe.picture.url(:medium), class: "img-circle img-offer popover-img text-center",:"data-placement" =>"bottom", :"data-content" => "#{image_tag offer.recipe.picture.url(:medium), class: 'img-popover img-circle'} #{offer.recipe.name} </br> #{offer.portion} portions" %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

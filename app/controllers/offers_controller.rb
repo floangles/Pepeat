@@ -9,6 +9,10 @@ class OffersController < ApplicationController
     # select * from recipes
     # inner join users on users.id = recipes.user_id
     # where users.address = "zert"
+    @markers = Gmaps4rails.build_markers(@recipes) do |recipe, marker|
+      marker.lat recipe.user.latitude
+      marker.lng recipe.user.longitude
+    end
   end
 
   def show

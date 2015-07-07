@@ -30,20 +30,25 @@
 
 }
 
-.sidebar {
-position: fixed;
-top: 0;
-bottom: 0;
-z-index:-1;
+.map {
+  z-index: -1 !important;
+  position: absolute !important;
+  top: 72px !important; /* assuming a navbar with a 50px height */
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 70% !important;
+}
+.results-container {
+  background-color: rgb(250, 250, 250);
+  padding: 20px;
+  position: absolute;
+  width: 70%;
+  top: 72px;
+  right: 0;
+  bottom: 0;
+  overflow: auto; /* permet de rendre le contenu scrollable */
 }
 
-.img-index {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  top: -42px;
-  right: 84px;
-}
 
 .position-date {
 
@@ -53,6 +58,5 @@ z-index:-1;
   border-bottom: solid 1px rgb(220,220,220);
   border-top: solid 1px rgb(220,220,220);
 
-
-
 }
+
