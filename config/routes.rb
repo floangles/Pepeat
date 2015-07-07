@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :pepeatcommunity
     resources :offers
     resources :recipes do
+      member do
+        patch :like
+      end
+
       resources :ingredients
       resources :categories
     end

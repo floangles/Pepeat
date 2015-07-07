@@ -2,7 +2,7 @@ module Profile
   class RecipesController < ApplicationController
 
     before_action :authenticate_user!
-    before_action :set_recipe, only: [:show, :edit, :destroy, :update]
+    before_action :set_recipe, only: [:show, :edit, :destroy, :update, :like]
 
     def index
       @recipes = current_user.recipes
@@ -43,25 +43,31 @@ module Profile
     end
 
     def destroy
-    @recipe.destroy
-    redirect_to profile_recipes_path
+      @recipe.destroy
+      redirect_to profile_recipes_path
     end
 
+    def like
+      @recipe.rank ||= 0
+      @recipe.rank += 1
+
+      if @recipe.save
+        flash[:notice] = "Miam ! Merci pour le like !"
+      else
+        flash[:notice] = "Une erreur est survenu !"
+      end
+
+      redirect_to profile_recipe_path(@recipe)
+    end
 
     private
-
-    def algolia
-      @recipes =Algolia.init_index('Recipe').set_settings({"attributesToIndex"=>["name", "numberpers", "preparationtime"], "customRanking"=>["asc(name)"]})
-
-    end
-
 
     def set_recipe
       @recipe = current_user.recipes.find(params[:id])
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, :numberpers, :description, :cooktime, :preparationtime, :price, :halal, :casher, :bio, :gluten, :lactose, :vegan, :vegetarian, :picture)
+      params.require(:recipe).permit(:id,:name, :numberpers, :description, :cooktime, :preparationtime, :price, :halal, :casher, :bio, :gluten, :lactose, :vegan, :vegetarian, :picture, :rank)
     end
 
   end

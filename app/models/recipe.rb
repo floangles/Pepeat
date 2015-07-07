@@ -9,6 +9,7 @@
 #  description          :text
 #  cooktime             :string
 #  preparationtime      :string
+#  price                :integer
 #  halal                :boolean
 #  vegan                :boolean
 #  vegetarian           :boolean
@@ -23,6 +24,7 @@
 #  picture_content_type :string
 #  picture_file_size    :integer
 #  picture_updated_at   :datetime
+#  rank                 :integer
 #
 # Indexes
 #
