@@ -20,7 +20,7 @@
               </div>
               <p><b>Nombre de portions disponibles : </b><%= available_portions(offer) %></p>
               <div class="godless img-circle">
-                <p><b></b><%= offer.recipe.price%>€</p>
+                <p><b></b><%= offer.price%>€</p>
               </div>
               <%= link_to 'Voir la recette', offer_path(offer), class: "btn btn-default" %>
             </div>
@@ -49,7 +49,6 @@
                   <% end %>
                 </div>
                 <div class="modal-footer">
-                  <p class= "text-center">Cimer mon frère</b></p>
                 </div>
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -57,11 +56,9 @@
 
 
 
-
-
       <% end %>
     <% end %>
-                <!-- Je suis la map Je suis la map JSUIISS LA MAP ! -->
+
   </div>
 </div>
 

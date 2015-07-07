@@ -9,7 +9,6 @@
 #  description          :text
 #  cooktime             :string
 #  preparationtime      :string
-#  price                :integer
 #  halal                :boolean
 #  vegan                :boolean
 #  vegetarian           :boolean
@@ -32,6 +31,8 @@
 #
 
 class Recipe < ActiveRecord::Base
+
+  include AlgoliaSearch
   belongs_to :user
   belongs_to :category
   has_many :ingredients, through: :composition
@@ -42,20 +43,20 @@ class Recipe < ActiveRecord::Base
   validates :description, presence: true
   validates :cooktime, presence: true
   validates :preparationtime, presence: true
-  validates :price, presence: true
 
-has_attached_file :picture,
+  has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
-include AlgoliaSearch
 
   algoliasearch do
-     attributes :name, :numberpers, :preparationtime # associated index settings can be configured from here
-     attributesToIndex ['name', 'numberpers', 'preparationtime']
-      customRanking ['asc(name)']
+    add_attribute :medium_picture_url
   end
 
+
+  def medium_picture_url
+    picture.url(:medium)
+  end
 end

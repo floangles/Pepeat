@@ -3,7 +3,6 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
-//= require algolia/v3/algoliasearch.min
 //= require_tree ./app
 
 

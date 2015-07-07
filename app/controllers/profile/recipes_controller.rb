@@ -51,7 +51,8 @@ module Profile
     private
 
     def algolia
-    @recipes= Recipe.reindex!
+      @recipes =Algolia.init_index('Recipe').set_settings({"attributesToIndex"=>["name", "numberpers", "preparationtime"], "customRanking"=>["asc(name)"]})
+
     end
 
 
