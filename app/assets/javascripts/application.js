@@ -3,6 +3,8 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
+//= require underscore
+//= require gmaps/google
 //= require_tree ./app
 
 

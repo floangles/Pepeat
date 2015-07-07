@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-
+source 'https://rails-assets.org'  # Add this at line 2
 ruby "2.2.2"
 
 
@@ -22,10 +22,14 @@ gem "uglifier"
 gem "bootstrap-sass"
 gem "font-awesome-sass"
 
+gem "coffee-script"
+
 gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
 gem "geocoder"
+gem "gmaps4rails"
+gem "rails-assets-underscore"
 gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
