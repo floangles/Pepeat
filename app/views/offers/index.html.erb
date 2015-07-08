@@ -69,7 +69,11 @@
                   <%= simple_form_for [offer, @booking], url: profile_bookings_path do |f| %>
                     <%= f.input :quantity, label: 'Combien de parts ?', collection: 1..available_portions(offer), input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
                     <%= f.input :offer_id, as: :hidden, :input_html => { :value => offer.id }%>
-                    <%= f.button :submit, class: "btn btn-success btn-lg" %>
+                    <% if available_portions(offer) > 0 %>
+                      <%= f.button :submit, class: "btn btn-success btn-lg" %>
+                    <% else %>
+                      <p> Désolé, toutes les parts ont été vendues :) </p>
+                    <% end %>
                   <% end %>
                 </div>
               </div><!-- /.modal-content -->
