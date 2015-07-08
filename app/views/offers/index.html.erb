@@ -63,14 +63,14 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title text-center"> BOOKING </h4>
+                  <h4 class="modal-title text-center"><%= offer.recipe.name %></h4>
                 </div>
                 <div class="modal-body">
                   <%= simple_form_for [offer, @booking], url: profile_bookings_path do |f| %>
                     <%= f.input :quantity, label: 'Combien de parts ?', collection: 1..available_portions(offer), input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
                     <%= f.input :offer_id, as: :hidden, :input_html => { :value => offer.id }%>
                     <% if available_portions(offer) > 0 %>
-                      <%= f.button :submit, class: "btn btn-success btn-lg" %>
+                      <%= f.button :submit, label: 'Réservez maintenant', class: "btn btn-success btn-lg" %>
                     <% else %>
                       <p> Désolé, toutes les parts ont été vendues :) </p>
                     <% end %>
