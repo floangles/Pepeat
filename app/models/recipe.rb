@@ -55,6 +55,7 @@ class Recipe < ActiveRecord::Base
 
   algoliasearch do
     add_attribute :medium_picture_url
+    add_attribute :rank
   end
 
 

@@ -1,15 +1,71 @@
-  .search {
-      text-align: center;
-    }
-    .search input {
-      font-size: 20px;
-      width: 300px;
-    }
-    .results {
-      margin: auto;
-      text-align: center;
-    }
-    .results ul {
-      list-style-type: none;
-      padding: 0;
-    }
+.search {
+    text-align: center;
+  }
+  .search input {
+    font-size: 20px;
+    width: 300px;
+  }
+.img-size {
+  height: 246px;
+  width: 100%;
+  border-radius: 3px 3px 0px 0px;
+  }
+
+.card-algolia {
+  background-color: white;
+  margin: 13px;
+  padding: 4px;
+  box-shadow: 3px 1px 3px #efe7e7;
+  border-radius: 3px;
+
+}
+
+.numbpers {
+  position: absolute;
+  left: 282px;
+  top: 233px;
+  color: white;
+  background-color: #EE5F5B;
+  padding: 2px 8px;
+  border-radius: 3px;
+
+}
+
+.marginhead {
+  margin-bottom: 40px;
+}
+.cooktime {
+  position: absolute;
+  left: 19px;
+  top: 233px;
+  color: white;
+  text-shadow: 1px 1px rgb(140,140,140);
+  background-color: #30AC1B;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.titlerecipe {
+  color: white;
+  font-size: 30px;
+  text-shadow: 1px 2px rgb(140,140,140);
+  position: absolute;
+  left: 27px;
+  top: 15px;
+}
+
+.textcool {
+  font-size:18px;
+  padding: 10px;
+  color: black;
+}
+
+.filter {
+  position: absolute;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   opacity: 0.3;
+   background: #383838 ;
+   border-radius: 3px 3px 0px 0px;
+}
