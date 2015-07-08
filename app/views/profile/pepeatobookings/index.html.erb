@@ -1,5 +1,7 @@
 <%= render 'shared/small_navbar' %>
-<h1 class= "text-center">Commandes en cours</h1>
+<div class="pepeatobooking-title">
+  <h1 class= "text-center">Commandes en cours</h1>
+</div>
 
 <div class="container">
   <div class="row">
@@ -21,14 +23,18 @@
               <div class="row">
                 <div class="card-pepeatobooking-header-part">
                   <div class="col-sm-4">
-                    <h3><%= available_portions(offer)%> <%= image_tag 'part.png'%> restante(s)</h3>
+                    <% if available_portions(offer) > 0 %>
+                      <h3><%= available_portions(offer)%> <%= image_tag 'part.png'%> restante(s)</h3>
+                    <% else %>
+                      <p>Vous avez vendu toutes vos parts</p>
+                    <% end %>
                   </div>
                   <div class="col-sm-4">
-                    salut
+                    <%= day_in_french(offer.startdate)%> <%= offer.startdate.strftime('%M/%m')%>
                   </div>
                   <div class="col-sm-4">
                 </div>
-                  salut
+                  <i class="fa fa-clock-o"></i> <%= offer.startdate.strftime('%Hh%M')%> à <%= offer.enddate.strftime('%Hh%M') %>
                 </div>
               </div>
             </div>
@@ -58,61 +64,6 @@
 
 
 
-<div class="container">
-  <div class="row">
-    <% @offers.each do |offer| %>
-      <div class="col-xs-12 padded-bottom">
-        <div class= "card-commande relative">
-          <div class="row">
-            <div class= "row-top">
-              <div class="col-xs-12">
-                <div class= "card-name-offer text-center">
-                  <span class= "text-ajustment"><%= offer.recipe.name%></br></span>
-                </div>
-                <div class= "position-portion">
-                  <span class= "offer-ajustement"><%= offer.portion %> <p>Portions proposées</p></span>
-                </div>
-                <div class= "price-position text-center">
-                  <p><%= offer.price %> € /part</p>
-                </div>
-                <div class= "commande-position">
-                  <%= image_tag offer.recipe.picture.url(:medium), class: "img-circle img-position"%>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class= "row-bottom relative">
-              <% offer.bookings.each do |booking| %>
-                <div class="col-xs-2">
-                  <div class= "card-booking relative">
-                    <div>
-                      <%= image_tag booking.user.picture.url(:medium), class: "img-circle img-booking" %>
-                    </div>
-                    <div class= "prenom-booking">
-                      <%= booking.user.firstname %>
-                    </div>
-                    <div class= 'quantity-position'>
-                      <p>A réservé <%= booking.quantity %> part</p>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-          <div class= "position-leftportion">
-            <span class= "leftportion-ajustement"><%= available_portions(offer) %> <p> Portions restantes </p>
-            </span>
-            <%#= link_to "Connect", {controller:"offers_controller", action:"index", my_param: '@leftportion'}%>
-          </div>
-          <div>
-            <b class= "text-left-position"></b>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
 
 
 

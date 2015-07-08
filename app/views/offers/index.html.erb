@@ -33,7 +33,7 @@
                     <div class="col-xs-12 text-center">
                       <p class="card-recipe-pickup">
                         <%= day_in_french(offer.startdate) %> <br>
-                        <%= offer.startdate.strftime('%l:%M%P')%> à <%= offer.enddate.strftime('%l:%M%P') %>
+                        <%= offer.startdate.strftime('%Hh%M')%> à <%= offer.enddate.strftime('%Hh%M') %>
                       </p>
                     </div>
                   </div>
