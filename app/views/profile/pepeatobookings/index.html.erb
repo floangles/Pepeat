@@ -4,6 +4,63 @@
 <div class="container">
   <div class="row">
     <% @offers.each do |offer| %>
+      <div class="col-xs-12">
+        <div class="card-pepeatobooking">
+          <div class="col-sm-4">
+            <div class="card-pepeatobooking-lefter" style="background-image: url('<%= asset_path offer.recipe.picture.url(:medium) %>');">
+              <div class="card-pepeatobooking-lefter-infos">
+                <h3><%=offer.recipe.name %></h3>
+              </div>
+              <div class="card-pepeatobooking-lefter-portions">
+                <%= offer.portion %> x parts
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="card-pepeatobooking-header">
+              <div class="row">
+                <div class="card-pepeatobooking-header-part">
+                  <div class="col-sm-4">
+                    <h3><%= available_portions(offer)%> <%= image_tag 'part.png'%> restante(s)</h3>
+                  </div>
+                  <div class="col-sm-4">
+                    salut
+                  </div>
+                  <div class="col-sm-4">
+                </div>
+                  salut
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div class="card-pepeatobooking-body">
+              <div class="row">
+                <% offer.bookings.each do |booking| %>
+                  <div class="col-sm-2">
+                    <div class="card-pepeatobooking-body-booking">
+                      <%= image_tag booking.user.picture.url(:medium), class: "img-circle position-picture" %>
+                      <div class= "card-pepeatobooking-body-booking-text">
+                        <h3><%= booking.user.firstname %></h3>
+                        <h3><%= booking.quantity %> <%= image_tag 'part2.png' %></h3>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <% @offers.each do |offer| %>
       <div class="col-xs-12 padded-bottom">
         <div class= "card-commande relative">
           <div class="row">

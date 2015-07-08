@@ -24,7 +24,7 @@ module Profile
     end
 
     def booking_params
-      params.require(:booking).permit(:date, :quantity, :offer_id)
+      params.require(:booking).permit(:quantity, :offer_id)
 
     end
 

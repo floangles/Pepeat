@@ -6,7 +6,6 @@
 #  offer_id   :integer
 #  user_id    :integer
 #  quantity   :integer
-#  date       :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -21,5 +20,4 @@ class Booking < ActiveRecord::Base
   belongs_to :user
 
   validates :quantity, presence: true
-  validates :date, presence: true
 end

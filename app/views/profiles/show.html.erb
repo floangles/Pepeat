@@ -1,25 +1,47 @@
 
 <%= render 'shared/small_navbar' %>
 
-<div class= "text-center padded-top padded-bottom">
+<div class="padded-top padded-bottom" id="profile">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-3 col-sm-offset-2 text-center">
         <%=image_tag current_user.picture.url(:medium), class: "img-circle" %>
       </div>
-      <div class="col-sm-6">
-        <div class= "card relative">
-          <p><b>Prénom</b> : <%= current_user.firstname %></p>
-          <p><b>Nom</b> : <%= current_user.lastname %></p>
-          <p><b>Addresse</b> : <%= current_user.address %></p>
-          <p><b>Mail</b> : <%= current_user.email %></p>
-          <p><b>Numéro de téléphone</b> : <%= current_user.phonenumber %></p>
-          <p><b>sex</b> : <%= current_user.sex %></p>
-          <p><b> description</b> : <%= current_user.description %></p>
-          <div class= "position-btn-profile">
-            <%= link_to 'edit', edit_profile_path, class: "btn btn-success "%>
-          </div>
-        </div>
+      <div class="col-sm-5">
+        <table>
+          <tr>
+            <td><b>Prénom</b></td>
+            <td><%= current_user.firstname %></td>
+          </tr>
+          <tr>
+            <td><b>Nom</b></td>
+            <td><%= current_user.lastname %></td>
+          </tr>
+          <tr>
+            <td><b>Addresse</b></td>
+            <td><%= current_user.address %></td>
+          </tr>
+          <tr>
+            <td><b>Mail</b></td>
+            <td><%= current_user.email %></td>
+          </tr>
+          <tr>
+            <td><b>Numero</b></td>
+            <td><%= current_user.phonenumber %></td>
+          </tr>
+          <tr>
+            <td><b>Sexe</b></td>
+            <td><%= current_user.sex %></td>
+          </tr>
+          <tr>
+            <td><b>Description</b></td>
+            <td><%= current_user.description %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to 'edit', edit_profile_path, class: "btn btn-success "%></td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
