@@ -1,0 +1,14 @@
+.modal {
+  &-header {
+    background: darken($green, 5%);
+    color: white;
+  }
+  &-body {
+    padding: 60px;
+  }
+  .btn {
+    width: 100%;
+    border-radius: 0;
+    margin-top: 30px;
+  }
+}

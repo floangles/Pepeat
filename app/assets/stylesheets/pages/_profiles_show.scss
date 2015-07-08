@@ -3,3 +3,32 @@
   right: 172px;
   bottom: -17px;
 }
+
+
+#profile {
+  img {
+    width: 100px;
+    margin: auto;
+  }
+  table {
+    box-shadow: 1px 1px 3px #E0DCDC;
+    margin: auto;
+  }
+  tr {
+    background: white;
+    border-bottom: 1px solid $gray-lighter;
+    td {
+      padding: 25px;
+      &:last-child {
+        width: 300px;
+        text-align: right;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm) {
+  #profile table {
+    margin-top: 20px;
+  }
+}

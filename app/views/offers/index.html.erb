@@ -7,7 +7,6 @@
         <% recipe.offers.each do |offer| %>
           <div class= "card-padding-map">
             <div class="col-xs-12 col-sm-4 padded-bottom">
-
               <div class="card-recipe">
                 <div class="card-recipe-header" style="background-image: url('<%= asset_path offer.recipe.picture.url(:medium) %>');">
                   <div class="card-recipe-filter"></div>
@@ -34,7 +33,7 @@
                     <div class="col-xs-12 text-center">
                       <p class="card-recipe-pickup">
                         <%= day_in_french(offer.startdate) %> <br>
-                        <%= offer.startdate.strftime('%l:%M%P')%> à <%= offer.enddate.strftime('%l:%M%P') %>
+                        <%= offer.startdate.strftime('%Hh%M')%> à <%= offer.enddate.strftime('%Hh%M') %>
                       </p>
                     </div>
                   </div>
@@ -66,18 +65,12 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <h4 class="modal-title text-center"> BOOKING </h4>
                 </div>
-
-                <div class="modal-body form-inline">
+                <div class="modal-body">
                   <%= simple_form_for [offer, @booking], url: profile_bookings_path do |f| %>
-                    <div class= "form-offer">
-                      <%= f.input :quantity, label: 'Combien de parts voulez vous réserver', collection: 1..available_portions(offer), class: "form-control" %>
-                      <%= f.input :date, label: 'A quelle heure voulez vous venir le chercher' %>
-                      <%= f.input :offer_id, as: :hidden, :input_html => { :value => offer.id }%>
-                      <%= f.button :submit %>
-                    </div>
+                    <%= f.input :quantity, label: 'Combien de parts ?', collection: 1..available_portions(offer), input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
+                    <%= f.input :offer_id, as: :hidden, :input_html => { :value => offer.id }%>
+                    <%= f.button :submit, class: "btn btn-success btn-lg" %>
                   <% end %>
-                </div>
-                <div class="modal-footer">
                 </div>
               </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

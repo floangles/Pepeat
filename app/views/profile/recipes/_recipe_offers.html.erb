@@ -1,0 +1,15 @@
+<% recipe.offers.each do |offer| %>
+  <div class="col-sm-12 padded-bottom">
+    <div class= "relative med-padded-bottom">
+      <div class= "position-text">
+        <%= link_to "Delete", profile_offer_path(offer),
+   method: :delete,
+   data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+        <b><%= offer.recipe.name%> / </b> number of portions : <%= offer.portion %> </br>
+        <i> disponibilité : <%= l(offer.startdate, format: '%H:%M') %> ----> </i>
+        <i><%= l(offer.enddate, format: '%H:%M') %></i>
+      </div>
+      <%=image_tag offer.recipe.picture.url(:medium), class: "img-circle img-offer popover-img text-center",:"data-placement" =>"bottom", :"data-content" => "#{image_tag offer.recipe.picture.url(:medium), class: 'img-popover img-circle'} #{offer.recipe.name} </br> #{offer.portion} portions" %>
+    </div>
+  </div>
+<% end %>

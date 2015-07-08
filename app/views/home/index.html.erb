@@ -2,13 +2,12 @@
   <div class="text-center" id="big_title">
     <h2> Commandez des plats maison cuisinés par des passionnés</h2>
   </div>
-  <div class="form-inline" id= "position-home-form">
-    <div class="container">
-      <div class="row ">
-        <%= form_tag(offers_path, method: "get", class: "text-center ") do %>
-          <%= text_field_tag(:user_address, nil, placeholder: 'votre ville ?', class: 'form-control form') %>
-          <%= number_field_tag(:rayon, nil, placeholder: 'rayon', class: 'form-control form') %>
-          <%= submit_tag("Search", class: "btn-danger btn-large btn form-control", id: 'submit-btn') %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%= form_tag(offers_path, method: "get", class: "form-inline") do %>
+          <%= text_field_tag(:user_address, nil, placeholder: 'votre ville ?', class: 'form-control input-lg') %>
+          <%= submit_tag("Search", class: "btn btn-danger btn-lg") %>
         <% end %>
       </div>
     </div>
@@ -42,14 +41,14 @@
     </div>
   </div>
 </div>
-<div id="userstories">
+<div id="userstories" class="text-center">
   <h2 class="text-center" id="title-talk">les utilisateurs en parlent </h2>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <%= image_tag "pepeato.jpg", class: 'img-style'%>
+      <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+        <%= image_tag "pepeato.jpg", class: 'img-style pull-left'%>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-4">
           <div class="talk text-center">
             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
             <hr class="lign">
@@ -62,10 +61,10 @@
           </div>
 
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <%= image_tag "user.jpg", class: 'img-style' %>
+      <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+        <%= image_tag "user.jpg", class: 'img-style pull-left'%>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-4">
           <div class="talk text-center">
              <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
             <hr class="lign">
