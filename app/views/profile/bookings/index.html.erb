@@ -1,19 +1,77 @@
-
-<h1>hello booking</h1>
-
-
-<% @bookings.each do |booking| %>
-<ul>
-  <li><%= booking.offer.recipe.name %><%= link_to "voir la commande", profile_booking_path(booking)%></li>
-  <li><%= booking.offer.recipe.description %></li>
-  <li><%= booking.offer.price %></li>
-</ul>
-
-
-<%end %>
-
-
-<%= link_to "Mes informations personnelles", profile_path %>
+<%= render 'shared/small_navbar' %>
 
 
 
+
+
+
+
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+
+      <div class="col-xs-12 col-sm-4 padded-bottom padded-right">
+        <div class="card-recipe">
+          <div class="card-recipe-header" style="background-image: url('<%= asset_path booking.offer.recipe.picture.url(:medium) %>');">
+            <div class="card-recipe-filter"></div>
+            <div class="card-recipe-header-infos">
+              <h3><%= booking.offer.recipe.name %></h3>
+            </div>
+            <div class="card-recipe-header-portions">
+              <%= booking.quantity %> x part(s)
+            </div>
+          </div>
+          <div class="card-recipe-body">
+            <div class="row">
+              <div class="col-xs-3">
+                <%= image_tag booking.offer.recipe.user.picture.url(:medium), class: "img-circle img-index" %>
+              </div>
+              <div class="col-xs-9">
+                <h3>
+                  <%= booking.offer.recipe.user.firstname.capitalize %> <%= booking.offer.recipe.user.lastname.capitalize %>
+                </h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <p class="card-recipe-pickup">
+                  <%= day_in_french(booking.offer.startdate) %> <br>
+                  <%= booking.offer.startdate.strftime('%Hh%M')%> à <%= booking.offer.enddate.strftime('%Hh%M') %>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer text-right">
+            <ul class="list-inline">
+              <li>
+                <%= link_to offer_path(booking.offer), class: "card-recipe-control" do %>
+                  <i class="fa fa-eye"></i>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <div id="map" class="map-user"></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(17);
+      });
+    })
+  <% end %>
+<% end %>
