@@ -12,7 +12,6 @@
                   <div class="card-recipe-filter"></div>
                   <div class="card-recipe-header-infos">
                     <h3><%= offer.recipe.name %></h3>
-                    <p>Grillades</p>
                   </div>
                   <div class="card-recipe-header-portions">
                     <%= available_portions(offer) %> x parts
@@ -41,6 +40,11 @@
 
                 <div class="footer text-right">
                   <ul class="list-inline">
+                    <li>
+                      <div class="price-position">
+                        <span class="price-position2"><%= offer.price %> €</span>
+                      </div>
+                    </li>
                     <li>
                       <a data-toggle="modal" data-target="#booking-<%=offer.id%>" class="card-recipe-control">
                         Commander

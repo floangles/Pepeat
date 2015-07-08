@@ -2,13 +2,12 @@
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 0px;
-  height: 400px;
-  width: auto;
-  background: asset-url("bgbg.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  height: 200px;
+  background: asset-url("pen.jpg") fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
   position: relative;
   }
 
@@ -30,7 +29,5 @@
   background-color: #EE5F5B;
   border-radius:3px;
   padding: 10px;
-
-
 
 }
