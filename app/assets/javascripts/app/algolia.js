@@ -17,18 +17,34 @@ function searchCallback(err, content) {
   }
   var $recipes = $('#recipes');
   $recipes.empty();
-  for (var i = 0; i < content.hits.length; i++) {
-    $recipes.append('<div class="row">');
-      $recipes.append('<div class="col-xs-12 col-sm-6">');
-        $recipes.append('<div>' + content.hits[i].name + '</div>');
-        $recipes.append('<div>' + content.hits[i].numberpers + '</div>');
-        $recipes.append('<div>' + content.hits[i].cooktime + '</div>');
-        $recipes.append('<div>' + content.hits[i].preparationtime + '</div>');
-        $recipes.append("<a href='/profile/recipes/"+content.hits[i].id +"'>" + "voir la recette" + '</a>');
-        $recipes.append('<img src="' + content.hits[i].medium_picture_url + '">');
-      $recipes.append('</div>');
-    $recipes.append('</div>');
-  }
+      for (var i = 0; i < content.hits.length; i++) {
+        $recipe = $('<div class="col-xs-12 col-sm-4 ">');
+          $card =$('<div class="card-algolia">')
+            $header =$("<div class='marginhead'>")
+              $header.append('<img src="' + content.hits[i].medium_picture_url +'"'+' class="img-size"'+ '>');
+                $component1 =$("<div class='numbpers'>")
+                  $component1.append(content.hits[i].numberpers);
+                  $component1.append('x parts');
+
+                $component2 =$("<div class='cooktime'>")
+                  $component2.append('<i class="fa fa-clock-o"></i> ' + content.hits[i].cooktime);
+
+                $component3=$("<div class='titlerecipe'>")
+                  $component3.append('<p class="text-left">' + content.hits[i].name + '</p>');
+            $description =$("<div>")
+                $coco =$("<div class='text-center'>")
+                  $coco.append("<a href='/profile/recipes/"+content.hits[i].id +"'"+">" + "Voir la recette  <i class='fa fa-eye'></i>" + '</a>');
+                  $coco.append('<hr>');
+        $recipes.append($recipe)
+        $recipe.append($card)
+        $card.append($header)
+        $card.append($description)
+        $header.append($component1)
+        $header.append($component2)
+        $header.append($component3)
+        $description.append($coco)
+
+      }
 };
 
 
