@@ -38,7 +38,7 @@
             Recette crée le : <%= @recipe.created_at %>
             Par : <%= @offer.recipe.user.lastname.upcase %>
           </div>
-          <button data-toggle="modal" data-target="#booking-<%= @offer.id %>"> Commander </button>
+          <button data-toggle="modal" data-target="#booking2-<%= @offer.id %>"> Commander </button>
         </div>
     </div>
   </div>
@@ -55,25 +55,29 @@
 
 <!--modale booking-->
 
-<div class="modal fade" id="booking-<%= @offer.id %>">
+
+
+<div class="modal fade" id="booking2-<%= @offer.id%>">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-center"> BOOKING </h4>
+        <h4 class="modal-title text-center"><%= @offer.recipe.name %></h4>
       </div>
-      <div class="modal-body form-inline">
+      <div class="modal-body">
         <%= simple_form_for [@offer, @booking], url: profile_bookings_path do |f| %>
-          <div class= "form-offer">
-            <%= f.input :quantity, label: 'Combien de parts voulez vous réserver' %>
-            <%= f.input :offer_id, as: :hidden, :input_html => { :value => @offer.id }%>
-            <%= f.button :submit %>
+          <%= f.input :quantity, label: 'Combien de parts ?', collection: 1..available_portions(@offer), input_html: {class: "input-lg"}, prompt: "aucune part choisie" %>
+          <%= f.input :offer_id, as: :hidden, :input_html => { :value => @offer.id }%>
+          <% if available_portions(@offer) > 0 %>
+            <%= f.button :submit, label: 'Réservez maintenant', class: "btn btn-success btn-lg" %>
+          <% else %>
+            <p> Désolé, toutes les parts ont été vendues :) </p>
+          <% end %>
         <% end %>
-      </div>
-      <div class="modal-footer">
-        <p class= "text-center">Cimer mon frère</b></p>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+</div>
+
+
 
