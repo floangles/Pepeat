@@ -15,9 +15,22 @@ module Profile
     end
 
     def create
-      @recipe = current_user.recipes.new(recipe_params)
+      if params[:recipe][:id]
+        @old_recipe = Recipe.find(params[:recipe][:id])
+        @recipe = @old_recipe.dup
+        @recipe.user = current_user
+      else
+        @recipe = current_user.recipes.new(recipe_params)
+      end
+
       @recipe.save
       if @recipe.save
+
+        if params[:recipe][:id]
+          @recipe.picture = @old_recipe.picture
+          @recipe.save
+        end
+
         redirect_to profile_recipes_path
       else
         render :new
@@ -59,6 +72,7 @@ module Profile
 
       redirect_to profile_recipe_path(@recipe)
     end
+
 
     private
 

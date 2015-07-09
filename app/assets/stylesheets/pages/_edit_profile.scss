@@ -1,8 +1,6 @@
 
-
-
-#profile {
-  background-color:#F4F4F4;
+#profile-edit {
+  width: 100%;
   img {
     width: 80px;
     margin: auto;
@@ -18,15 +16,17 @@
   tr {
     background: white;
     border-bottom: 1px solid $gray-lighter;
+    color: #E28383;
     td {
-      padding: 25px;
-      &:last-child {
-        width: 300px;
-        text-align: right;
-      }
+
+      padding-bottom: 20px;
+  padding-top: 15px;
+  padding-right: 33px;
+  padding-left: 42px;
     }
   }
 }
+
 
 @media (max-width: $screen-sm) {
   #profile table {
@@ -36,4 +36,8 @@
 
 .swagbtn {
   width: 100%;
+}
+
+.bg {
+  background-color:#F4F4F4;
 }

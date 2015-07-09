@@ -50,6 +50,12 @@
             <p>
               <i class="fa fa-heart"><%= @recipe.rank %></i>
             </p>
+            <div  class= "small-padded-top">
+              <%= simple_form_for [:profile, Recipe.new]  do |f|%>
+                <%= f.input :id, as: :hidden, input_html: {value: @recipe.id}%>
+                <%= f.button :submit, ('Ajouter à mes recettes'), class: "btn btn-primary" %>
+              <% end %>
+            </div>
           </div>
         </div>
     </div>

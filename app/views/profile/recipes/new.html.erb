@@ -1,45 +1,79 @@
 
 <%= render 'shared/small_navbar' %>
-<div class="container">
-  <div class="row text-center padded-bottom">
-    <%= simple_form_for @recipe, url: profile_recipes_path do |f| %>
-      <div class="col-xs-12 col-sm-12 text-center">
-        <div class= "card-step-1">
-          <p class= "padded-bottom"><b>1/ </b> Description de la recette</p>
-          <%= f.input :name, label: 'Nom de la recette', placeholder: 'tripe salto de canard en boite', class: "form-control form-inline" %>
-          <%= f.input :numberpers, label: 'Nombre de personnes pour votre recette ' %>
-          <%= f.input :description, placeholder: 'Expliquer votre recette' %>
+<div class="swag-pad">
+  <div>
+<%= image_tag "imageswag.jpg", class: "swaggydog"%>
+  </div>
+  <div class="container">
+    <div class="row">
+      <%= simple_form_for @recipe, url: profile_recipes_path do |f| %>
+       <!-- 1er block -->
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3" id="recipe-new">
+          <table class="swag-table">
+            <tr>
+              <td colspan="7">
+                <%= f.input :name, label: 'Nom de la recette', placeholder: 'tripe salto de canard en boite' %>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7">
+                <%= f.input :numberpers, label: 'Nombre de personnes pour votre recette ' %>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7">
+                <%= f.input :description, placeholder: 'Expliquer votre recette' %>
+              </td>
+            </tr>
+             <!-- 2eme block -->
+          <tr>
+            <td colspan="7">
+              <%= f.input :cooktime, inline_label: 'Temps de cuisson' %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="7">
+              <%= f.input :preparationtime, label: 'Temps de préparation' %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.input :bio, inline_label: 'bio' %>
+            </td>
+            <td>
+              <%= f.input :halal, inline_label: 'halal' %>
+            </td>
+            <td>
+              <%= f.input :vegan, inline_label: 'vegetalien' %>
+            </td>
+            <td>
+              <%= f.input :vegetarian, inline_label: 'vegearian' %>
+            </td>
+            <td>
+              <%= f.input :gluten, inline_label: 'gluten' %>
+            </td>
+            <td>
+              <%= f.input :lactose, inline_label: 'lactose' %>
+            </td>
+            <td>
+              <%= f.input :casher, inline_label: 'casher' %>
+            </td>
+          </tr>
+              <!-- 3eme block -->
+          <tr >
+            <td colspan="7" >
+              <%= f.file_field :picture%>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="7">
+             <%= f.button :submit,class: "swagbtn btn btn-danger btn-lg" %>
+            </td>
+          </tr>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-12">
-        <div class= "card-step-2">
-          <p><b>2/ </b>Ingrédients</p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-12 text-center">
-        <div class= "card-step-1">
-          <p class= "padded-bottom"><b>3/ </b>Détails</p>
-          <%= f.input :cooktime, inline_label: 'Temps de cuisson' %>
-          <%= f.input :preparationtime, label: 'Temps de préparation' %>
-          <div class= "form-inline">
-          <%= f.input :bio, inline_label: 'bio' %>
-          <%= f.input :halal, inline_label: 'halal' %>
-          <%= f.input :vegan, inline_label: 'vegetalien' %>
-          <%= f.input :vegetarian, inline_label: 'vegearian' %>
-          <%= f.input :gluten, inline_label: 'gluten' %>
-          <%= f.input :lactose, inline_label: 'lactose' %>
-          <%= f.input :casher, inline_label: 'casher' %>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-12 text-center padded-bottom">
-        <div class= "card-step-4 text-center">
-          <p><b>4/ </b>Ajouter une photo</p>
-          <%= f.file_field :picture, class: "form-inline" %>
-        </div>
-      </div>
-        <%= f.button :submit %>
-    <% end %>
+      </table>
+      <% end %>
+    </div>
   </div>
 </div>
 
