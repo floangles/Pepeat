@@ -1,0 +1,18 @@
+.card-recipe{
+  width: 308px;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  &-header {
+    height: 250px;
+    background-size: cover;
+    color: white;
+    border-radius: 3px 3px 0px 0px;
+  }
+  &-body {
+    &-infos {
+       border-bottom: 1px solid $gray-lighter;
+    margin: auto;
+
+    }
+  }
+}

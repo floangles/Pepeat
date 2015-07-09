@@ -1,15 +1,9 @@
 <%= render 'shared/small_navbar' %>
 
-
-
-
-
-
-
+<h3 class= "text-center padded-bottom">Mes commandes</h3>
 <div class="container">
   <div class="row">
     <% @bookings.each do |booking| %>
-
       <div class="col-xs-12 col-sm-4 padded-bottom padded-right">
         <div class="card-recipe">
           <div class="card-recipe-header" style="background-image: url('<%= asset_path booking.offer.recipe.picture.url(:medium) %>');">
@@ -45,7 +39,7 @@
           <div class="footer text-right">
             <ul class="list-inline">
               <li>
-                <%= link_to offer_path(booking.offer), class: "card-recipe-control" do %>
+                <%= link_to profile_booking_path(booking), class: "card-recipe-control" do %>
                   <i class="fa fa-eye"></i>
                 <% end %>
               </li>
@@ -53,25 +47,10 @@
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-8">
-        <div id="map" class="map-user"></div>
-      </div>
     <% end %>
   </div>
 </div>
 
 
 
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(17);
-      });
-    })
-  <% end %>
-<% end %>
+
