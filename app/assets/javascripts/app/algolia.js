@@ -43,8 +43,5 @@ function searchCallback(err, content) {
         $header.append($component2)
         $header.append($component3)
         $description.append($coco)
-
       }
 };
-
-

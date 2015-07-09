@@ -1,36 +1,39 @@
 
 <%= render 'shared/small_navbar' %>
 
-<div class= "padded-top padded-bottom">
+<div class= "padded-top padded-bottom bg">
   <div class="container">
-    <div class="row text-center">
-      <div class="col-xs-offset-4 col-xs-4 text-center">
-        <div>
-          <%= simple_form_for(@user, url: profile_path, html: { multipart: true }) do |f| %>
-            <div class="labels-form">
-              <%= f.error_notification %>
-
-              <%= f.input :firstname %>
-              <%= f.input :lastname %>
-              <%= f.input :address, placeholder: "Start typing your address"%>
-              <%= f.input :city, input_html: {id: "locality"} %>
-              <%= f.input :email %>
-              <%= f.input :phonenumber %>
-              <%= f.input :sex %>
-              <%= f.input :description %>
-              <p>
-                <%= f.label :picture %>
-                <%= f.file_field :picture %>
-              </p>
-
-              <%= f.button :submit, "Save my profile" %>
-            <% end %>
-            </div>
-        </div>
+    <div class="row">
+      <%= simple_form_for(@user, url: profile_path, html: { multipart: true }) do |f| %>
+        <%= f.error_notification %>
+        <div class=" col-xs-12 col-sm-8 col-sm-offset-2">
+          <table id="profile-edit">
+            <tr class="border">
+              <td><b><%= f.input :firstname %></b></td>
+              <td><b><%= f.input :lastname %></b></td>
+            </tr>
+            <tr>
+              <td><b>  <%= f.input :address%></b></td>
+              <td><b> <%= f.input :city, input_html: {id: "locality"} %></b></td>
+            </tr>
+             <tr>
+              <td><b> <%= f.input :email %></b></td>
+              <td><b><%= f.input :phonenumber %></b></td>
+            </tr>
+            <tr>
+              <td><b><%= f.input :sex %></b></td>
+              <td><%= f.file_field :picture %></td>
+            </tr>
+            <tr>
+              <td colspan="2"><b> <%= f.input :description %></b></td>
+            </tr>
+            <tr id="submit-padd">
+              <td colspan="2"><em><strong><%= f.button :submit, "GO!", class: "swagbtn btn-lg btn-danger" %></strong></em></td>
+            </tr>
+          </table>
+      <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
 
