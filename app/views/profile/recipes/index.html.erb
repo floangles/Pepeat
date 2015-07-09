@@ -4,28 +4,36 @@
 <div id="recipes-manager-header">
   <h1 class="text-center">Gérez ici vos recettes</h1>
   <%= image_tag current_user.picture.url(:medium), class: "img-circle"%>
+  <div class= "title-recipe">
+    <h3>Recettes</h3>
+  </div>
+  <div class= "add-recipe">
+    <%=link_to new_profile_recipe_path, class: "recipe-add-btn" do %>
+      <i class="fa fa-plus"></i>
+    <% end %>
+  </div>
+  <div class= "title-offer">
+    <h3>Offres en ligne</h3>
+  </div>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
-      <ul class="list-recipes list-unstyled">
+      <ul class= "list-unstyled">
         <% @recipes.each do |recipe| %>
           <li>
             <%= render "recipe", recipe: recipe %>
           </li>
         <% end %>
       </ul>
-      <div class="text-center">
-        <%=link_to new_profile_recipe_path, class: "recipe-add-btn" do %>
-          <i class="fa fa-plus"></i>
-        <% end %>
-      </div>
     </div>
     <div class="col-xs-6">
-      <ul>
+      <ul  class= "list-unstyled">
         <% @recipes.each do |recipe| %>
-          <%= render "recipe_offers", recipe: recipe %>
+          <li>
+              <%= render "recipe_offers", recipe: recipe %>
+          </li>
         <% end %>
       </ul>
     </div>
