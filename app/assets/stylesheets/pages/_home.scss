@@ -17,7 +17,7 @@
 
 
 #userstories {
-  background: asset-url("featuredbg.jpg") no-repeat center center fixed;
+  background-color: white;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -112,3 +112,43 @@
 }
 
 
+.size_img-home {
+  width: 100%
+}
+
+.padd-img {
+  margin-left: 50px;
+  margin-bottom: 34px;
+  img {
+    border-radius: 2px;
+    height: 170px;
+
+  }
+}
+.title-card-feat {
+  position: absolute;
+  left: 259px;
+  bottom: 270px;
+  color: white;
+  font-size: 40px;
+  text-shadow: 1px 1px rgb(100,100,100);
+}
+
+.god {
+  position: relative;
+}
+
+.img-right-feat {
+  margin-left: 20px;
+  height: 100%;
+}
+
+.title-card-feat-lille {
+  position: absolute;
+  left: 22px;
+  bottom: 223px;
+  color: white;
+  font-size: 40px;
+  text-shadow: 1px 1px rgb(100,100,100);
+
+}

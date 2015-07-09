@@ -1,14 +1,10 @@
 
 <%= render 'shared/small_navbar' %>
 <div class="swag-pad">
-  <div>
-<%= image_tag "imageswag.jpg", class: "swaggydog"%>
-  </div>
   <div class="container">
     <div class="row">
+        <div class="col-xs-12 col-sm-6col-sm-offset-2" id="recipe-new">
       <%= simple_form_for @recipe, url: profile_recipes_path do |f| %>
-       <!-- 1er block -->
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3" id="recipe-new">
           <table class="swag-table">
             <tr>
               <td colspan="7">
@@ -71,8 +67,8 @@
             </td>
           </tr>
         </div>
-      </table>
       <% end %>
+      </table>
     </div>
   </div>
 </div>

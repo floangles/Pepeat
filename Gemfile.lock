@@ -274,6 +274,3 @@ DEPENDENCIES
   simple_form
   spring
   uglifier
-
-BUNDLED WITH
-   1.10.5

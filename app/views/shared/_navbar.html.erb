@@ -44,8 +44,8 @@
                       <i class="fa fa-home"></i>  <%= t ".profile", default: "Mes recettes" %>
                     <% end %>
                   <% else %>
-                    <%= link_to "#" do %>
-                      <i class="fa fa-home"></i>  <%= t ".profile", default: "Mes commandes" %>
+                    <%= link_to profile_bookings_path do %>
+                      <i class="fa fa-home"></i>  <%= t(".profile", default: "Mes commandes")%>
                     <% end %>
 
                 <% end %>
@@ -68,9 +68,6 @@
             <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
           </li>
         <% end %>
-        <li>
-          <%= link_to t(".top_call_to_action", default: "Trouve un plat"), "#", class: "btn" %>
-        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
