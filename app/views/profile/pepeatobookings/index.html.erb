@@ -24,9 +24,9 @@
                 <div class="card-pepeatobooking-header-part">
                   <div class="col-sm-4">
                     <% if available_portions(offer) > 0 %>
-                      <h3><%= available_portions(offer)%> <%= image_tag 'part.png'%> restante(s)</h3>
+                      <h3><%= available_portions(offer)%> x <%= image_tag 'part.png'%> restante(s)</h3>
                     <% else %>
-                      <p>Vente complete <i class="fa fa-smile-o"></i></p>
+                      <p class="full">Vente complete <i class="fa fa-smile-o"></i></p>
                     <% end %>
                   </div>
                   <div class="col-sm-4">
@@ -45,10 +45,14 @@
                 <% offer.bookings.each do |booking| %>
                   <div class="col-sm-2">
                     <div class="card-pepeatobooking-body-booking">
-                      <%= image_tag booking.user.picture.url(:medium), class: "img-circle position-picture" %>
+                      <% if  booking.user.picture %>
+                        <%= image_tag booking.user.picture.url(:medium), class: "img-circle position-picture" %>
+                      <% else %>
+                        <img src="http://placehold.it/100x100" alt="">
+                      <% end %>
                       <div class= "card-pepeatobooking-body-booking-text">
                         <h3><%= booking.user.firstname %></h3>
-                        <h3><%= booking.quantity %> <%= image_tag 'part2.png' %></h3>
+                        <h3><%= booking.quantity %> x <%= image_tag 'part2.png' %></h3>
                       </div>
                     </div>
                   </div>

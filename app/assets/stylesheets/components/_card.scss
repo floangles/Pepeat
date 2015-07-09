@@ -23,6 +23,15 @@
       padding: 2px 8px;
       border-radius: 3px;
     }
+    &-price {
+      font-size: 20px;
+      position: absolute;
+      bottom: 8px;
+      left: -4px;
+      box-shadow: 1px 1px 3px rgb(68, 49, 49);
+      padding: 1px 18px;
+      background-color: rgb(102, 67, 67);
+    }
   }
   &-filter {
     position: absolute;
@@ -101,15 +110,19 @@
     height: 50px;
     background-color: white;
     color: black;
+    border-bottom: 1px solid rgb(239, 239, 239);
     border-radius: 3px 3px 0px 0px;
-    box-shadow: 0px 0px 3px rgb(239, 231, 231);
+    /* box-shadow: 0px 0px 3px #efe7e7; */
     h3 {
       margin-top: 0px;
-      font-size: 20px;
+      font-size: 15px;
     }
     &-part {
     text-align: center;
     margin-top: 10px;
+    }
+    .full {
+      color: $green;
     }
   }
   &-body {
@@ -119,9 +132,9 @@
       margin-left: 20px;
       height: 100px;
       // border: solid 1px rgb(220,220,220);
-      box-shadow: 1px 1px 6px rgb(239, 231, 231);
+
       // border-bottom: solid 1px black;
-      background-color: white;
+      background-color: rgb(250, 249, 249);
       &-text {
         position: absolute;
 
@@ -129,6 +142,9 @@
         left: 23px;
         h3 {
           font-size: 14px;
+        }
+        h3:last-child {
+          color: rgb(248, 110, 108);
         }
       }
     }

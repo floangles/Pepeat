@@ -15,8 +15,10 @@
             </div>
           </div>
           <div class="col-xs-6">
-            <%= day_in_french(offer.startdate)%> <%= offer.startdate.strftime('%M/%m')%></br>
-            <%= offer.startdate.strftime('%Hh%M')%> à <%= offer.enddate.strftime('%Hh%M') %>
+            <div class="offer-availabilities">
+              <%= day_in_french(offer.startdate)%> <%= offer.startdate.strftime('%M/%m')%></br>
+              <%= offer.startdate.strftime('%Hh%M')%> à <%= offer.enddate.strftime('%Hh%M') %>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -32,9 +34,11 @@
             </div>
             <div class="col-xs-3">
               <div class= "position-delete-offer">
-                  <%= link_to "X", profile_offer_path(offer),
+                  <%= link_to profile_offer_path(offer),
                      method: :delete,
-                     data: { confirm: "Are you sure?" }, class: "btn btn-sm "%>
+                     data: { confirm: "Are you sure?" }, class: "btn btn-sm " do %>
+                    <i class="fa fa-trash-o"></i>
+                  <% end %>
               </div>
             </div>
           </div>
