@@ -2,7 +2,6 @@ source "https://rubygems.org"
 source 'https://rails-assets.org'  # Add this at line 2
 ruby "2.2.2"
 
-
 gem "rails", "4.2.3"
 gem "pg"
 gem "figaro"
@@ -21,6 +20,8 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier"
 gem "bootstrap-sass"
 gem "font-awesome-sass"
+
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 gem "algoliasearch-rails"
 

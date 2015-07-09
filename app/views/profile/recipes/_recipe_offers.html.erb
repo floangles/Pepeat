@@ -1,15 +1,55 @@
 <% recipe.offers.each do |offer| %>
-  <div class="col-sm-12 padded-bottom">
-    <div class= "relative med-padded-bottom">
-      <div class= "position-text">
-        <%= link_to "Delete", profile_offer_path(offer),
-   method: :delete,
-   data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
-        <b><%= offer.recipe.name%> / </b> number of portions : <%= offer.portion %> </br>
-        <i> disponibilité : <%= l(offer.startdate, format: '%H:%M') %> ----> </i>
-        <i><%= l(offer.enddate, format: '%H:%M') %></i>
+  <div class= "list-recipes">
+    <div class="row">
+      <div class="col-xs-4">
+        <%= image_tag(offer.recipe.picture.url(:medium), :alt => "image recipe", class: "img-responsive img-margin")%>
       </div>
-      <%=image_tag offer.recipe.picture.url(:medium), class: "img-circle img-offer popover-img text-center",:"data-placement" =>"bottom", :"data-content" => "#{image_tag offer.recipe.picture.url(:medium), class: 'img-popover img-circle'} #{offer.recipe.name} </br> #{offer.portion} portions" %>
+      <div class="col-xs-8">
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="list-recipes-infos">
+              <h3><b><%= offer.recipe.name %></b> <%= link_to profile_recipe_path(offer.recipe) do %>
+                  <i class="fa fa-eye"></i>
+                  <% end %>
+              </h3>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <%= day_in_french(offer.startdate)%> <%= offer.startdate.strftime('%M/%m')%></br>
+            <%= offer.startdate.strftime('%Hh%M')%> à <%= offer.enddate.strftime('%Hh%M') %>
+          </div>
+        </div>
+        <div class="row">
+          <div class= "infos-offer">
+            <div class="col-xs-3">
+              <%= offer.price%> € / <%= image_tag 'spart.png' %>
+            </div>
+            <div class="col-xs-3">
+              <%= offer.delay %> <i class="fa fa-clock-o"></i>
+            </div>
+            <div class="col-xs-3">
+              <%= offer.portion%> <%= image_tag 'spart.png' %>
+            </div>
+            <div class="col-xs-3">
+              <div class= "position-delete-offer">
+                  <%= link_to "X", profile_offer_path(offer),
+                     method: :delete,
+                     data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
+
+
+
+
+
+
+
+
+
+

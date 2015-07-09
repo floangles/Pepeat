@@ -17,18 +17,18 @@
 }
 
 .list-recipes {
-  > li {
+
     background-color: white;
-    padding: 5px;
-    margin: 5px;
+    margin: 20px;
     box-shadow: 1px 1px 3px rgb(224, 220, 220);
     border-radius: 3px;
+
     &:first-child {
       margin-top: 80px;
     }
     &:last-child {
       margin-bottom: 80px;
-    }
+
   }
   &-infos {
     padding-left: 10px;
@@ -46,11 +46,68 @@
 
 .recipe-add-btn {
   color: white;
-  background: #C5BFBF;
+  background: #3AB696;
   padding: 21px 24px;
   font-size: 15px;
   border-radius: 50%;
   /* width: 75px; */
   height: 53px;
   text-align: center;
+}
+
+.go-offer{
+  position: relative;
+  background-color: #EC605E;
+  height: 100px;
+  border-radius: 3px;
+  &-text {
+    position: absolute;
+    top: 30px;
+    right: 26px;
+
+  }
+}
+
+.img-margin{
+  margin: 5px;
+}
+
+.infos-offer {
+  padding-top: 20px;
+  padding-left: 40px;
+}
+
+
+.title-recipe{
+  position: absolute;
+  top: 85px;
+  left: 220px;
+}
+
+.add-recipe {
+  position: absolute;
+  top: 109px;
+  left: 380px;
+}
+
+
+.title-offer{
+  position: absolute;
+  top: 85px;
+  right: 220px;
+}
+
+
+.bouton-offer {
+height: 100px;
+  width: 89px;
+  position: absolute;
+  top: -30px;
+  right: -27px;
+}
+
+.position-delete-offer {
+  position: absolute;
+  left: 49px;
+  top: -3px;
 }
