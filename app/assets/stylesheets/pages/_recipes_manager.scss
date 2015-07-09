@@ -53,11 +53,13 @@
   /* width: 75px; */
   height: 53px;
   text-align: center;
+  position: relative;
+  z-index: 11;
 }
 
 .go-offer{
   position: relative;
-  background-color: #EC605E;
+  background-color: white;
   height: 100px;
   border-radius: 3px;
   &-text {
@@ -65,6 +67,9 @@
     top: 30px;
     right: 26px;
 
+  }
+  &:hover {
+    background-color: rgb(234, 228, 228);
   }
 }
 
@@ -86,8 +91,8 @@
 
 .add-recipe {
   position: absolute;
-  top: 109px;
-  left: 380px;
+  top: 41px;
+  right: 79px;
 }
 
 

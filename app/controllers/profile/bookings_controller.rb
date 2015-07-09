@@ -6,7 +6,12 @@ module Profile
 
     def index
       @bookings = current_user.bookings.all
-      @markers = Gmaps4rails.build_markers(@bookings) do |booking, marker|
+
+    end
+
+    def show
+      @booking = current_user.bookings.find(params[:id])
+      @markers = Gmaps4rails.build_markers(@booking) do |booking, marker|
       marker.lat booking.offer.recipe.user.latitude
       marker.lng booking.offer.recipe.user.longitude
       end

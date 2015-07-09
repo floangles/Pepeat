@@ -1,24 +1,49 @@
-<h1>allo le show booking</h1>
 
-<%= @booking.offer.recipe.name %>
-<%= @booking.offer.recipe.numberpers %>
-<%= @booking.offer.recipe.description %>
-<%= @booking.offer.recipe.cooktime %>
-<%= @booking.offer.recipe.preparationtime %>
-<%= @booking.offer.price %>
-<%= @booking.offer.recipe.halal %>
-<%= @booking.offer.recipe.vegan %>
-<%= @booking.offer.recipe.vegetarian %>
-<%= @booking.offer.recipe.gluten %>
-<%= @booking.offer.recipe.lactose %>
-<%= @booking.offer.recipe.casher %>
-<%= @booking.offer.recipe.bio %>
-<%= @booking.offer.portion %>
-<%= @booking.offer.startdate %>
-<%= @booking.quantity %>
-<%= @booking.date %>
-<%= @booking.user.first_name %>
-<%= @booking.user.last_name %>
-<%= @booking.user.email %>
-<%= @booking.user.phonenumber %>
-<%= @booking.user.address %>
+<h3 class= "text-center padded-bottom">Recapitulatif de votre commande</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card-recipe">
+        <div class= "car-recipe-header">
+          <%= image_tag @booking.offer.recipe.picture.url(:medium) %>
+        </div>
+        <div class="card-recipe-body">
+          <div class= "card-recipe-body-infos small-padded-bottom">
+            <b>Nom</b> : <%= @booking.offer.recipe.name%>
+          </div>
+          <div class= "card-recipe-body-infos small-padded-bottom">
+            <b>Temps de préparation</b> : <%= @booking.offer.recipe.preparationtime%>
+          </div>
+          <div class= "card-recipe-body-infos small-padded-bottom">
+            <b>Temps de cuisson</b> : <%= @booking.offer.recipe.cooktime%>
+          </div>
+          <div class= "card-recipe-body-infos small-padded-bottom">
+            <b>Description</b> : <%= @booking.offer.recipe.description%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div id="map" style= "width: 500px;height: 400px; "></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(17);
+      });
+    })
+  <% end %>
+<% end %>
