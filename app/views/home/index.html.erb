@@ -41,42 +41,36 @@
     </div>
   </div>
 </div>
+
+
+
 <div id="userstories" class="text-center">
-  <h2 class="text-center" id="title-talk">les utilisateurs en parlent </h2>
+  <h2 class="text-center" id="title-talk">DES GOUTS ET DES COULEURS </h2>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-        <%= image_tag "pepeato.jpg", class: 'img-style pull-left'%>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-          <div class="talk text-center">
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <hr class="lign">
-            <p>
-              Marine de Tinder <br> Pepeato
-            </p>
-            <div class="postion">
-              <%= image_tag "noun_17562.png", class: 'icn'%>
-            </div>
+      <div class="col-xs-12 col-sm-9">
+        <div class=" text-center god">
+          <div class="title-card-feat">
+            Voir les plats à Paris
           </div>
-
+          <%= link_to offers_path(user_address: "Paris")  do %>
+            <%=image_tag "Paris.jpg", class: "size_img-home" %>
+          <% end %>
+        </div>
       </div>
-      <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-        <%= image_tag "user.jpg", class: 'img-style pull-left'%>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-          <div class="talk text-center">
-             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <hr class="lign">
-            <p>
-              Jeanne <br> Pepeato
-            </p>
-            <div class="postion">
-              <%= image_tag "noun_17562.png", class: 'icn'%>
-            </div>
-
+       <div class="col-xs-12 col-sm-3 ">
+        <div class="title-card-feat-lille">
+            Voir les plats à lille
           </div>
+        <%= link_to offers_path(user_address: "Lille") do %>
+            <%=image_tag "lille.jpg", class: "size_img-home img-right-feat" %>
+          <% end %>
+
       </div>
     </div>
   </div>
 </div>
+
+
+
+

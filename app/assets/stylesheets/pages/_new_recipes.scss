@@ -10,6 +10,7 @@
   tr {
     background: white;
     border-bottom: 1px solid $gray-lighter;
+    color: #E74646;
     td {
       padding: 25px;
       &:last-child {
@@ -34,18 +35,11 @@
 }
 
 .swag-pad {
-  padding-top:20px;
+  padding-top:86px;
   padding-bottom:20px;
   position: relative;
   background-color: #F4F4F4;
 }
 
-.swaggydog {
-  width: 582px;
-  height: 995px;
-  border-radius: 3px;
-  position: absolute;
-  left: -12px;
-  top: 0px;
 
-}
+
