@@ -27,21 +27,18 @@ function searchCallback(err, content) {
                   $component1.append('x parts');
 
                 $component2 =$("<div class='cooktime'>")
-                  $component2.append('<i class="fa fa-clock-o"></i> ' + content.hits[i].cooktime);
+                  $component2.append('<i class="fa fa-clock-o"></i> ' + content.hits[i].preparationtime);
 
                 $component3=$("<div class='titlerecipe'>")
                   $component3.append('<p class="text-left">' + content.hits[i].name + '</p>');
-            $description =$("<div>")
-                $coco =$("<div class='text-center'>")
-                  $coco.append("<a href='/profile/recipes/"+content.hits[i].id +"'"+">" + "Voir la recette  <i class='fa fa-eye'></i>" + '</a>');
-                  $coco.append('<hr>');
+
         $recipes.append($recipe)
         $recipe.append($card)
         $card.append($header)
-        $card.append($description)
+
         $header.append($component1)
         $header.append($component2)
         $header.append($component3)
-        $description.append($coco)
+
       }
 };

@@ -2,8 +2,8 @@
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 0px;
-  height: 200px;
-  background: asset-url("pen.jpg") fixed;
+  height: 150px;
+  background-color: #EE5F5B;
   // -webkit-background-size: cover;
   // -moz-background-size: cover;
   // -o-background-size: cover;
@@ -15,8 +15,18 @@
 
   padding-bottom: 20px;
   color: black;
-  font-size: 18px;
   border-bottom: 1px solid green;
 }
 
+
+.h1-community {
+  color: white;
+  font-size: 40px;
+
+}
+.h2-community {
+  color: white;
+  font-size: 20px;
+
+}
 

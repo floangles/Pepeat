@@ -1,10 +1,5 @@
-.search {
-    text-align: center;
-  }
-  .search input {
-    font-size: 20px;
-    width: 300px;
-  }
+
+
 .img-size {
   height: 246px;
   width: 100%;
@@ -14,7 +9,7 @@
 .card-algolia {
   background-color: white;
   margin: 13px;
-  padding: 4px;
+  padding: 2px;
   box-shadow: 3px 1px 3px #efe7e7;
   border-radius: 3px;
 
@@ -31,9 +26,7 @@
 
 }
 
-.marginhead {
-  margin-bottom: 40px;
-}
+
 .cooktime {
   position: absolute;
   left: 19px;
@@ -68,4 +61,10 @@
    opacity: 0.3;
    background: #383838 ;
    border-radius: 3px 3px 0px 0px;
+}
+
+.formstyle {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
