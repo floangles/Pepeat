@@ -1,4 +1,6 @@
-.card-recipe{
+.card-show-recipe{
+  padding: 10px;
+  margin: 20px;
   background-color: white;
   box-shadow: 1px 1px 3px rgb(239, 231, 231);
   &-header {
@@ -14,4 +16,40 @@
 
     }
   }
+}
+
+.card-booking {
+  padding: 10px;
+  margin: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(239, 231, 231);
+  &-header{
+    height: auto;
+    &-name {
+      padding: 20px;
+      font-size: 20px;
+      border-bottom: 1px solid $gray-lighter;
+    }
+    &-infos {
+      padding: 20px;
+      font-size: 20px;
+      border-bottom: 1px solid $gray-lighter;
+    }
+  }
+}
+
+
+.spacing {
+  padding-right: 20px;
+}
+
+
+
+
+.booking-picture {
+  position: absolute;
+  top: -21px;
+  right: 266px;
+  height: 80px;
+  width: 80px;
 }

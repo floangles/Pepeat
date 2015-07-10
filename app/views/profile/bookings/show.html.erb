@@ -1,37 +1,61 @@
-
+<%= render 'shared/small_navbar' %>
 <h3 class= "text-center padded-bottom">Recapitulatif de votre commande</h3>
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <div class="card-recipe">
-        <div class= "car-recipe-header">
-          <%= image_tag @booking.offer.recipe.picture.url(:medium) %>
+      <div class="card-show-recipe">
+        <div class= "card-show-recipe-header">
+          <div class= "text-center">
+            <%= image_tag @booking.offer.recipe.picture.url(:medium) %>
+          </div>
         </div>
-        <div class="card-recipe-body">
+        <div class="card-show-recipe-body">
           <div class= "card-recipe-body-infos small-padded-bottom">
             <b>Nom</b> : <%= @booking.offer.recipe.name%>
           </div>
-          <div class= "card-recipe-body-infos small-padded-bottom">
+          <div class= "card-show-recipe-body-infos small-padded-bottom">
             <b>Temps de préparation</b> : <%= @booking.offer.recipe.preparationtime%>
           </div>
-          <div class= "card-recipe-body-infos small-padded-bottom">
+          <div class= "card-show-recipe-body-infos small-padded-bottom">
             <b>Temps de cuisson</b> : <%= @booking.offer.recipe.cooktime%>
           </div>
-          <div class= "card-recipe-body-infos small-padded-bottom">
+          <div class= "card-show-recipe-body-infos small-padded-bottom">
             <b>Description</b> : <%= @booking.offer.recipe.description%>
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-6">
-      <div id="map" style= "width: 500px;height: 400px; "></div>
+      <div class="card-booking">
+        <div class="card-booking-header">
+          <div class= "card-booking-header-name">
+            <i class="fa fa-user spacing"></i> <%= @booking.offer.recipe.user.firstname %>
+            <%= @booking.offer.recipe.user.lastname %>
+          </div>
+            <%=image_tag @booking.offer.recipe.user.picture.url(:medium), class: "img-circle booking-picture" %>
+          <div class= "card-booking-header-infos">
+            <i class="fa fa-phone spacing"></i> <%= @booking.offer.recipe.user.phonenumber%>
+          </div>
+          <div class= "card-booking-header-infos">
+            <i class="fa fa-map-marker spacing" ></i> <%= @booking.offer.recipe.user.address %>
+          </div>
+          <div class="card-booking-header-infos">
+            <i class="fa fa-cutlery spacing" ></i> <%= @booking.quantity %>
+          </div>
+          <div class= "card-booking-header-infos">
+            <i class="fa fa-cart-plus spacing"></i> <%= day_in_french(@booking.offer.startdate)%> <%= @booking.offer.startdate.strftime('%M/%m')%>
+            de <%= @booking.offer.startdate.strftime('%Hh%M')%> à <%= @booking.offer.enddate.strftime('%Hh%M') %>
+          </div>
+            <div id="map" style= "width: auto;height: 300px; "></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 
 
-
+ <!--    -->
 
 
 <% content_for(:after_js) do %>
